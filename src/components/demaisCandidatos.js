@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const DemaisCandidatosContainer = styled.div`
+  display: grid;
+  place-items: center;
   select {
-    width: 100%;
+    width: 90%;
     height: 2rem;
     font-weight: bold;
     color: #484848;
@@ -17,6 +19,7 @@ export const DemaisCandidatosContainer = styled.div`
 
 export const DemaisCandidatos = () => {
   return (
+
     <select>
       <option disabled selected>Demais candidatos</option>
       <option value="Fulano">Fulano</option>

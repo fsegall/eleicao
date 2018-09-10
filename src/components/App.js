@@ -5,6 +5,7 @@ import { BarraContainer, EstadoSelecionado, SenadorVotos, UrnasVotos } from './b
 import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, SenadorQuadroFoto, NomeSenador, PartidoSenador, PercentualSenador, VotosSenador, Separador } from './resultadoSenador';
 import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos';
 import SenadorBox from './senador';
+import { ContainerResultados, NomeGovernador, NomePresidente, ContainerGovernador, ContainerPresidente } from './resultadoPresidente_Governador';
 
 
 import styled from 'styled-components';
@@ -77,9 +78,33 @@ class App extends Component {
 
         </ResultadoSenadoresContainer>
 
-        <DemaisCandidatosContainer><DemaisCandidatos /></DemaisCandidatosContainer>
+        <DemaisCandidatosContainer>
+          <DemaisCandidatos />
+        </DemaisCandidatosContainer>
 
         <Separador />
+
+        <ContainerResultados>
+
+          <ContainerGovernador>
+            <NomeGovernador>
+              Governador
+            </NomeGovernador>
+            <DemaisCandidatosContainer>
+              <DemaisCandidatos />
+            </DemaisCandidatosContainer>
+          </ContainerGovernador>
+
+          <ContainerPresidente>
+            <NomePresidente>
+              Presidente
+            </NomePresidente>
+            <DemaisCandidatosContainer>
+              <DemaisCandidatos />
+            </DemaisCandidatosContainer>
+          </ContainerPresidente>
+
+        </ContainerResultados>
 
       </React.Fragment>
     );

@@ -4,9 +4,10 @@ import { SenadorQuadroFoto, NomeSenador, PartidoSenador, PercentualSenador, Voto
 const SenadorBox = (props) => {
   return (
     <div>
-
+      {/* <img src="./img/male-placeholder.png" /> */}
       <SenadorQuadroFoto>
         {props.eleito === "sim" ? <span>Eleito</span> : ""}
+
       </SenadorQuadroFoto>
       <NomeSenador>
         {props.nome}
