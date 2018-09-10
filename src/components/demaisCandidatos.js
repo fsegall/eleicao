@@ -1,6 +1,21 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
-const DemaisCandidatos = () => {
+export const DemaisCandidatosContainer = styled.div`
+  select {
+    width: 100%;
+    height: 2rem;
+    font-weight: bold;
+    color: #484848;
+    background-color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+  }
+`
+
+export const DemaisCandidatos = () => {
   return (
     <select>
       <option disabled selected>Demais candidatos</option>
@@ -8,6 +23,4 @@ const DemaisCandidatos = () => {
       <option value="Beltrano">Beltrano</option>
     </select>
   )
-}
-
-export default DemaisCandidatos;
+};

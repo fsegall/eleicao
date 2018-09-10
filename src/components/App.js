@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { HeaderContainer, Header, NavTabEstados } from './layout/partialHeader';
 import Estados from './estados.js';
-import { BarraContainer, EstadoSelecionado, SenadorVotos, Divisor } from './barraResultadoSenadores';
-import DemaisCandidatos from './demaisCandidatos';
+import { BarraContainer, EstadoSelecionado, SenadorVotos, UrnasVotos } from './barraResultadoSenadores';
+import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, SenadorQuadroFoto, NomeSenador, PartidoSenador, PercentualSenador, VotosSenador, Separador } from './resultadoSenador';
+import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos';
+import SenadorBox from './senador';
+
 
 import styled from 'styled-components';
 
 
-
 class App extends Component {
+
   render() {
+
     return (
       <React.Fragment>
         <HeaderContainer>
@@ -23,11 +27,60 @@ class App extends Component {
 
           <SenadorVotos>
             <span>Senador</span>
-            1.895.697 eleitores
+            <p>1.895.697 eleitores</p>
           </SenadorVotos>
-          <Divisor />
+          <UrnasVotos>
+            <span>100,00%</span>
+            <p>Urnas Apuradas</p>
+          </UrnasVotos>
+
         </BarraContainer>
-        {/* <DemaisCandidatos /> */}
+
+        <ResultadoSenadoresContainer>
+          <SenadorPrimeiro>
+            <SenadorBox
+              eleito="sim"
+              nome="João Silva"
+              partido="PPS"
+              percentual="57.61"
+              votos="826.576 votos"
+            />
+          </SenadorPrimeiro>
+
+          <SenadorSegundo>
+            <SenadorBox
+              eleito="sim"
+              nome="Joana Silva"
+              partido="PMDB"
+              percentual="18.92"
+              votos="826.576 votos"
+            />
+          </SenadorSegundo>
+
+          <SenadorTerceiro>
+            <SenadorBox
+              nome="José Silva"
+              partido="PDT"
+              percentual="15.34"
+              votos="269.791 votos"
+            />
+          </SenadorTerceiro>
+
+          <SenadorQuarto>
+            <SenadorBox
+              nome="Maria Silva"
+              partido="Rede"
+              percentual="15.07"
+              votos="265.562 votos"
+            />
+          </SenadorQuarto>
+
+        </ResultadoSenadoresContainer>
+
+        <DemaisCandidatosContainer><DemaisCandidatos /></DemaisCandidatosContainer>
+
+        <Separador />
+
       </React.Fragment>
     );
   }
