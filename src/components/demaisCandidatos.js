@@ -13,6 +13,7 @@ export const DemaisCandidatosContainer = styled.div`
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
+    padding-left: 0.5rem;
   }
 `
 

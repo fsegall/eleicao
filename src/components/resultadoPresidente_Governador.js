@@ -29,7 +29,7 @@ export const ContainerPresidente = styled.div`
   display: grid;
 `;
 
-export const NomeGovernador = styled.h3`
+export const NomeCargo = styled.h3`
   border-bottom: 1px solid #ccc;
   grid-column: 1 / 3;
   grid-row: 1 / 2;

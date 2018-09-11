@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const BarraContainer = styled.div`
   display: flex;
-  margin-top: 2rem;
+  
 `
 
 export const EstadoSelecionado = styled.div`

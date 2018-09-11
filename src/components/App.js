@@ -5,9 +5,9 @@ import { BarraContainer, EstadoSelecionado, SenadorVotos, UrnasVotos } from './b
 import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, Separador } from './resultadoSenador';
 import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos';
 import SenadorBox from './senador';
-import { ContainerResultados, NomeGovernador, ContainerGovernador, ContainerPresidente, QuadroPresGov, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
+import { ContainerResultados, NomeCargo, ContainerGovernador, ContainerPresidente, QuadroPresGov, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
 import CandidatoBox from './candidatosBox';
-
+import ImageBack from "./backImage";
 import styled from 'styled-components';
 
 
@@ -88,9 +88,9 @@ class App extends Component {
         <ContainerResultados>
 
           <ContainerGovernador>
-            <NomeGovernador>
+            <NomeCargo>
               Governador
-            </NomeGovernador>
+            </NomeCargo>
 
             <FlexTest>
               <QuadroPresGov />
@@ -124,11 +124,42 @@ class App extends Component {
 
 
           <ContainerPresidente>
-            oi
+            <NomeCargo>
+              Presidente
+            </NomeCargo>
+
+            <FlexTest>
+              <QuadroPresGov />
+              <CandidatoBox
+                nome="João Silva"
+                partido="PSDB"
+                percentual="30.00"
+                votos="5000"
+              />
+            </FlexTest>
+
+            <FlexTest>
+              <GovernadorFoto2>
+                <QuadroPresGov />
+              </GovernadorFoto2>
+              <CandidatoBox
+                nome="João Silva"
+                partido="PSDB"
+                percentual="30.00"
+                votos="5000"
+              />
+            </FlexTest>
+
+            <GovPresDemaisCandidatos>
+              <DemaisCandidatosContainer>
+                <DemaisCandidatos />
+              </DemaisCandidatosContainer>
+            </GovPresDemaisCandidatos>
           </ContainerPresidente>
 
         </ContainerResultados>
 
+        <ImageBack />
       </React.Fragment>
     );
   }
