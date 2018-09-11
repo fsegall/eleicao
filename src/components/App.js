@@ -5,10 +5,11 @@ import { BarraContainer, EstadoSelecionado, SenadorVotos, UrnasVotos } from './b
 import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, SenadorQuadroFoto, NomeSenador, PartidoSenador, PercentualSenador, VotosSenador, Separador } from './resultadoSenador';
 import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos';
 import SenadorBox from './senador';
-import { ContainerResultados, NomeGovernador, NomePresidente, ContainerGovernador, ContainerPresidente } from './resultadoPresidente_Governador';
+import { ContainerResultados, NomeGovernador, NomePresidente, ContainerGovernador, ContainerPresidente, QuadroPresGov, ContainerTeste, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
 
 
 import styled from 'styled-components';
+import CandidatoBox from './candidatosBox';
 
 
 class App extends Component {
@@ -90,18 +91,27 @@ class App extends Component {
             <NomeGovernador>
               Governador
             </NomeGovernador>
-            <DemaisCandidatosContainer>
-              <DemaisCandidatos />
-            </DemaisCandidatosContainer>
+
+            <CandidatoBox
+              nome="José Silva"
+              partido="PT"
+              percentual="30.00"
+              votos="25000"
+            >Hello flex!</CandidatoBox>
+
+
+            <GovernadorFoto2> <QuadroPresGov /></GovernadorFoto2>
+            <GovPresDemaisCandidatos>
+              <DemaisCandidatosContainer>
+                <DemaisCandidatos />
+              </DemaisCandidatosContainer>
+            </GovPresDemaisCandidatos>
+
           </ContainerGovernador>
 
+
           <ContainerPresidente>
-            <NomePresidente>
-              Presidente
-            </NomePresidente>
-            <DemaisCandidatosContainer>
-              <DemaisCandidatos />
-            </DemaisCandidatosContainer>
+            oi
           </ContainerPresidente>
 
         </ContainerResultados>

@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const DemaisCandidatosContainer = styled.div`
-  display: grid;
-  place-items: center;
+  padding: 1rem;
   select {
-    width: 90%;
+    width: 100%;
     height: 2rem;
     font-weight: bold;
     color: #484848;

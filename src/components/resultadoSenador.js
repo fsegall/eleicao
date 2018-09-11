@@ -59,7 +59,7 @@ export const PercentualSenador = styled.span`
   font-size: 2rem;
   color: #484848;
   display: block;
-  padding: 1rem;
+  padding-top: 1rem;
 `;
 
 export const PartidoSenador = styled.span`
