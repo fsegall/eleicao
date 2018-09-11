@@ -53,6 +53,9 @@ export const VotosSenador = styled.span`
   font-size: 0.8rem;
   color: #484848;
   display: block;
+  &::after {
+    content:" votos";
+  }
 `;
 
 export const PercentualSenador = styled.span`
@@ -60,6 +63,9 @@ export const PercentualSenador = styled.span`
   color: #484848;
   display: block;
   padding-top: 1rem;
+  &::after {
+    content:"%";
+  }
 `;
 
 export const PartidoSenador = styled.span`

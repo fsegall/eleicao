@@ -1,16 +1,12 @@
 import React from 'react';
 import { NomeSenador, PartidoSenador, PercentualSenador, VotosSenador } from './resultadoSenador';
-import { QuadroPresGov } from './resultadoPresidente_Governador';
 
 
 const CandidatoBox = (props) => {
   return (
 
     <React.Fragment>
-      <QuadroPresGov />
-
       <div>
-
         <NomeSenador>
           {props.nome}
         </NomeSenador>
@@ -23,7 +19,6 @@ const CandidatoBox = (props) => {
         <VotosSenador>
           {props.votos}
         </VotosSenador>
-
       </div>
     </React.Fragment>
 

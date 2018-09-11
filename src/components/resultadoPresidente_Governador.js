@@ -37,8 +37,6 @@ export const NomeGovernador = styled.h3`
   margin: 1rem;
 `;
 
-
-
 export const QuadroPresGov = styled.div`
 
   height: 8rem;
@@ -47,7 +45,7 @@ export const QuadroPresGov = styled.div`
   margin-bottom: 0.5rem;
   grid-column: span 1;
   grid-row: 2 / 3;
-  margin-left: 1rem;
+  margin: 0 1rem 0 1rem;
 `;
 
 /* export const GovernadorPrimeiro = styled.div`
@@ -64,10 +62,6 @@ export const GovPresDemaisCandidatos = styled.div`
   grid-column: span 2;
 `;
 
-export const SimpleTest = styled.p`
-  color: blue;
-  font-size: 1rem;
-`;
 
 export const FlexTest = styled.div`
   display: flex;

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { HeaderContainer, Header, NavTabEstados } from './layout/partialHeader';
+import { HeaderContainer, Header } from './layout/partialHeader';
 import Estados from './estados.js';
 import { BarraContainer, EstadoSelecionado, SenadorVotos, UrnasVotos } from './barraResultadoSenadores';
-import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, SenadorQuadroFoto, NomeSenador, PartidoSenador, PercentualSenador, VotosSenador, Separador } from './resultadoSenador';
+import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, Separador } from './resultadoSenador';
 import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos';
 import SenadorBox from './senador';
-import { ContainerResultados, NomeGovernador, NomePresidente, ContainerGovernador, ContainerPresidente, QuadroPresGov, ContainerTeste, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
-
+import { ContainerResultados, NomeGovernador, ContainerGovernador, ContainerPresidente, QuadroPresGov, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
+import CandidatoBox from './candidatosBox';
 
 import styled from 'styled-components';
-import CandidatoBox from './candidatosBox';
+
 
 
 class App extends Component {
@@ -45,7 +45,7 @@ class App extends Component {
               nome="João Silva"
               partido="PPS"
               percentual="57.61"
-              votos="826.576 votos"
+              votos="826.576"
             />
           </SenadorPrimeiro>
 
@@ -55,7 +55,7 @@ class App extends Component {
               nome="Joana Silva"
               partido="PMDB"
               percentual="18.92"
-              votos="826.576 votos"
+              votos="826.576"
             />
           </SenadorSegundo>
 
@@ -64,7 +64,7 @@ class App extends Component {
               nome="José Silva"
               partido="PDT"
               percentual="15.34"
-              votos="269.791 votos"
+              votos="269.791"
             />
           </SenadorTerceiro>
 
@@ -73,7 +73,7 @@ class App extends Component {
               nome="Maria Silva"
               partido="Rede"
               percentual="15.07"
-              votos="265.562 votos"
+              votos="265.562"
             />
           </SenadorQuarto>
 
@@ -92,15 +92,28 @@ class App extends Component {
               Governador
             </NomeGovernador>
 
-            <CandidatoBox
-              nome="José Silva"
-              partido="PT"
-              percentual="30.00"
-              votos="25000"
-            >Hello flex!</CandidatoBox>
+            <FlexTest>
+              <QuadroPresGov />
+              <CandidatoBox
+                nome="João Silva"
+                partido="PSDB"
+                percentual="30.00"
+                votos="5000"
+              />
+            </FlexTest>
 
+            <FlexTest>
+              <GovernadorFoto2>
+                <QuadroPresGov />
+              </GovernadorFoto2>
+              <CandidatoBox
+                nome="João Silva"
+                partido="PSDB"
+                percentual="30.00"
+                votos="5000"
+              />
+            </FlexTest>
 
-            <GovernadorFoto2> <QuadroPresGov /></GovernadorFoto2>
             <GovPresDemaisCandidatos>
               <DemaisCandidatosContainer>
                 <DemaisCandidatos />
