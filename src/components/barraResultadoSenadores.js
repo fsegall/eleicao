@@ -5,7 +5,6 @@ export const BarraContainer = styled.div`
   display: flex;
   
 `
-
 export const EstadoSelecionado = styled.div`
   border: 1px solid #ccc;
   align-self: center;
@@ -46,11 +45,4 @@ export const UrnasVotos = styled.div`
     font-size: 3rem;
   }
 `
-  /* export const EstadoSelecionado = styled.div`
-    border: 1px solid black;
-    grid-column: 1 / 2;
-  `
-  export const EstadoSelecionado = styled.div`
-    border: 1px solid #ccc;
-    grid-column: 1 / 2; */
 

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import image from '../../img/ulysses.jpg';
 
+// Banner do footer
+
 const ImageContainer = styled.div`
   > img {
     background-size: cover;

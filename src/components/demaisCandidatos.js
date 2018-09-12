@@ -19,11 +19,14 @@ export const DemaisCandidatosContainer = styled.div`
 
 export const DemaisCandidatos = () => {
   return (
-
-    <select>
-      <option disabled selected>Demais candidatos</option>
-      <option value="Fulano">Fulano</option>
-      <option value="Beltrano">Beltrano</option>
-    </select>
+    <DemaisCandidatosContainer>
+      <select>
+        <option disabled selected>Demais candidatos</option>
+        <option value="Fulano">Fulano</option>
+        <option value="Beltrano">Beltrano</option>
+      </select>
+    </DemaisCandidatosContainer>
   )
 };
+
+export default DemaisCandidatos;

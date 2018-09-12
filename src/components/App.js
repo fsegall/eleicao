@@ -3,11 +3,10 @@ import { HeaderContainer, Header } from './layout/partialHeader';
 import Estados from './estados.js';
 import { BarraContainer, EstadoSelecionado, SenadorVotos, UrnasVotos } from './barraResultadoSenadores';
 import { ResultadoSenadoresContainer, SenadorPrimeiro, SenadorSegundo, SenadorTerceiro, SenadorQuarto, Separador } from './resultadoSenador';
-import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos';
+import { DemaisCandidatos } from './demaisCandidatos';
 import SenadorBox from './senador';
 import { ContainerResultados, NomeCargo, ContainerGovernador, ContainerPresidente, QuadroPresGov, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
 import CandidatoBox from './candidatosBox';
-import styled from 'styled-components';
 import Footer from "./layout/partialFooter";
 
 
@@ -79,9 +78,9 @@ class App extends Component {
 
         </ResultadoSenadoresContainer>
 
-        <DemaisCandidatosContainer>
-          <DemaisCandidatos />
-        </DemaisCandidatosContainer>
+
+        <DemaisCandidatos />
+
 
         <Separador />
 
@@ -115,9 +114,9 @@ class App extends Component {
             </FlexTest>
 
             <GovPresDemaisCandidatos>
-              <DemaisCandidatosContainer>
-                <DemaisCandidatos />
-              </DemaisCandidatosContainer>
+
+              <DemaisCandidatos />
+
             </GovPresDemaisCandidatos>
 
           </ContainerGovernador>
@@ -151,9 +150,9 @@ class App extends Component {
             </FlexTest>
 
             <GovPresDemaisCandidatos>
-              <DemaisCandidatosContainer>
-                <DemaisCandidatos />
-              </DemaisCandidatosContainer>
+
+              <DemaisCandidatos />
+
             </GovPresDemaisCandidatos>
           </ContainerPresidente>
 
