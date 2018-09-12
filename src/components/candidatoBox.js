@@ -1,20 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import male from '../img/male-placeholder.png';
+import female from '../img/female-placeholder.jpg';
 
+// Subcomponentes
 
 const SenadorQuadroFoto = styled.div`
   height: 16rem;
   width: 12rem;
   border: 0.5rem solid #0095da;
   margin-bottom: 0.5rem;
-  
-  > span {
-    position: relative;
-    top: -0.8rem;
-    align-self: top;
+  display: flex;
+  justify-content: center;
+
+  span {
+    position: absolute;
+    
+    margin-top: -1.4rem;
     padding: 10px 20px;
     background-color:#d84136;
     color: #fff;
+  }
+
+  img {
+    
+    height: 16rem;
+    width: 12rem;
+    
   }
 `;
 
@@ -61,6 +73,8 @@ const CandidatoBox = (props) => {
 
       {props.eleitoSenador && <SenadorQuadroFoto>
         {props.eleitoSenador === "sim" ? <span>Eleito</span> : ""}
+        <img src={props.gender === 'male' ? male : female} />
+
       </SenadorQuadroFoto>}
 
       <NomeCandidato>

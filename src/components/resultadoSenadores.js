@@ -53,6 +53,7 @@ const ResultadoSenadores = () => {
 
         <SenadorPrimeiro>
           <CandidatoBox
+            gender="male"
             eleitoSenador="sim"
             nome="João Silva"
             partido="PPS"
@@ -63,6 +64,7 @@ const ResultadoSenadores = () => {
 
         <SenadorSegundo>
           <CandidatoBox
+            gender="female"
             eleitoSenador="sim"
             nome="Joana Silva"
             partido="PMDB"
@@ -73,6 +75,7 @@ const ResultadoSenadores = () => {
 
         <SenadorTerceiro>
           <CandidatoBox
+            gender="male"
             eleitoSenador="não"
             nome="José Silva"
             partido="PDT"
@@ -83,6 +86,7 @@ const ResultadoSenadores = () => {
 
         <SenadorQuarto>
           <CandidatoBox
+            gender="female"
             eleitoSenador="não"
             nome="Maria Silva"
             partido="Rede"

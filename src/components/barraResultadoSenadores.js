@@ -12,6 +12,7 @@ import styled from 'styled-components';
 
 const BarraContainer = styled.div`
   display: flex;
+  margin: 2rem 0 2rem 0;
   
 `
 // Subcomponentes
