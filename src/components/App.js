@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HeaderContainer, Header } from './layout/partialHeader';
+import HeaderPrincipal from './layout/partialHeader';
 import Estados from './estados.js';
 import BarraSenador from './barraResultadoSenadores';
 import ResultadoSenadores, { Separador } from './resultadoSenador';
@@ -15,9 +15,7 @@ class App extends Component {
 
       <React.Fragment>
 
-        <HeaderContainer>
-          <Header>Eleições 2018 - Resultados</Header>
-        </HeaderContainer>
+        <HeaderPrincipal />
 
         <Estados />
 
