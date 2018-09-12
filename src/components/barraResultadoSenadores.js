@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//
+// Padrão Usado no Arquivo
+// Container
+// Subcomponentes
+// Componentes Completos
+// 
+
+//Containers de Grid
+
 const BarraContainer = styled.div`
   display: flex;
   
 `
+// Subcomponentes
+
 const EstadoSelecionado = styled.div`
   border: 1px solid #ccc;
   align-self: center;
@@ -45,6 +56,9 @@ const UrnasVotos = styled.div`
     font-size: 3rem;
   }
 `
+
+// Componente Completo
+
 const BarraSenador = () => {
 
   return (

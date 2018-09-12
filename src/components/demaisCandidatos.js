@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-// Para uso no resultado dos Senadores
+// Container para uso na grid do resultado dos Senadores
 const DemaisCandidatosContainer = styled.div`
   padding: 1rem;
   select {
@@ -19,11 +19,26 @@ const DemaisCandidatosContainer = styled.div`
   }
 `
 
-// Para uso na grid apenas no caso de Governadores e Presidente
+// Componente Senador
+
+export const DemaisCandidatos = () => {
+  return (
+    <DemaisCandidatosContainer>
+      <select>
+        <option disabled>Demais candidatos</option>
+        <option value="Fulano">Fulano</option>
+        <option value="Beltrano">Beltrano</option>
+      </select>
+    </DemaisCandidatosContainer>
+  )
+};
+
+// Container para uso na grid de Governador e Presidente
 const GovPresDemaisContainer = styled.div`
   grid-column: span 2;
 `;
 
+// Componente Governador e Presidente
 export const GovPresDemaisCandidatos = () => {
   return (
     <GovPresDemaisContainer>
@@ -31,15 +46,3 @@ export const GovPresDemaisCandidatos = () => {
     </GovPresDemaisContainer>
   );
 }
-
-export const DemaisCandidatos = () => {
-  return (
-    <DemaisCandidatosContainer>
-      <select>
-        <option disabled selected>Demais candidatos</option>
-        <option value="Fulano">Fulano</option>
-        <option value="Beltrano">Beltrano</option>
-      </select>
-    </DemaisCandidatosContainer>
-  )
-};

@@ -1,7 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GovPresDemaisCandidatos } from './demaisCandidatos';
-import CandidatoBox from './candidatosBox';
+import CandidatoBox from './candidatoBox';
+
+//
+// Padrão Usado no Arquivo
+// Container
+// Subcomponentes
+// Componentes Completos
+// 
+
+// Containers de Grid
 
 // Bloco de resultados para Governador e Presidente
 export const ContainerResultados = styled.div`
@@ -33,6 +42,8 @@ const ContainerPresidente = styled.div`
   height: 100%;
   display: grid;
 `;
+
+// Subcomponentes
 
 // Nome do Cargo
 const NomeCargo = styled.h3`
@@ -72,6 +83,7 @@ const BoxTextoHorizontal = styled.div`
 `;
 
 // Componentes Completos 
+
 export const ResultadoGovernador = () => {
   return (
 
