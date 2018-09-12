@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const DemaisCandidatosContainer = styled.div`
+
+// Para uso no resultado dos Senadores
+const DemaisCandidatosContainer = styled.div`
   padding: 1rem;
   select {
     width: 100%;
@@ -17,6 +19,19 @@ export const DemaisCandidatosContainer = styled.div`
   }
 `
 
+// Para uso na grid apenas no caso de Governadores e Presidente
+const GovPresDemaisContainer = styled.div`
+  grid-column: span 2;
+`;
+
+export const GovPresDemaisCandidatos = () => {
+  return (
+    <GovPresDemaisContainer>
+      <DemaisCandidatos />
+    </GovPresDemaisContainer>
+  );
+}
+
 export const DemaisCandidatos = () => {
   return (
     <DemaisCandidatosContainer>
@@ -28,5 +43,3 @@ export const DemaisCandidatos = () => {
     </DemaisCandidatosContainer>
   )
 };
-
-export default DemaisCandidatos;

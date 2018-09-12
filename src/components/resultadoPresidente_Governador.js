@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { GovPresDemaisCandidatos } from './demaisCandidatos';
+import CandidatoBox from './candidatosBox';
 
+// Bloco de resultados para Governador e Presidente
 export const ContainerResultados = styled.div`
   place-items: center;
   display: grid;
@@ -9,7 +12,8 @@ export const ContainerResultados = styled.div`
   grid-gap: 2rem;
 `;
 
-export const ContainerGovernador = styled.div`
+// Resultados Governador
+const ContainerGovernador = styled.div`
   grid-column: span 2;
   grid-row: 1 / 3;
   border: 1px solid #ccc;
@@ -19,7 +23,8 @@ export const ContainerGovernador = styled.div`
   display: grid;
 `;
 
-export const ContainerPresidente = styled.div`
+// Resultados Presidente
+const ContainerPresidente = styled.div`
   grid-column: span 4;
   grid-row: 1 / 3;
   border: 1px solid #ccc;
@@ -29,7 +34,8 @@ export const ContainerPresidente = styled.div`
   display: grid;
 `;
 
-export const NomeCargo = styled.h3`
+// Nome do Cargo
+const NomeCargo = styled.h3`
   border-bottom: 1px solid #ccc;
   grid-column: 1 / 3;
   grid-row: 1 / 2;
@@ -37,8 +43,8 @@ export const NomeCargo = styled.h3`
   margin: 1rem;
 `;
 
-export const QuadroPresGov = styled.div`
-
+// Foto Alinhada por padrão para o primeiro colocado
+const QuadroPresGov = styled.div`
   height: 8rem;
   width: 6rem;
   border: 0.5rem solid #0095da;
@@ -48,21 +54,97 @@ export const QuadroPresGov = styled.div`
   margin: 0 1rem 0 1rem;
 `;
 
+// Grid se precisar posicionar algo no container da primeira foto
 /* export const GovernadorPrimeiro = styled.div`
   grid-column: 1 / 2;
   grid-row: 2 / 3;
 ` */
 
-export const GovernadorFoto2 = styled.div`
+// Foto alinhada para o segundo colocado
+const QuadroFotoSegundo = styled.div`
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 `
 
-export const GovPresDemaisCandidatos = styled.div`
-  grid-column: span 2;
-`;
-
-
-export const FlexTest = styled.div`
+// Display flex para alinhar texto ao lado da foto
+const BoxTextoHorizontal = styled.div`
   display: flex;
 `;
+
+// Componentes Completos 
+export const ResultadoGovernador = () => {
+  return (
+
+    <ContainerGovernador>
+
+      <NomeCargo>
+        Governador
+      </NomeCargo>
+
+      <BoxTextoHorizontal>
+        <QuadroPresGov />
+        <CandidatoBox
+          nome="João Silva"
+          partido="PSDB"
+          percentual="30.00"
+          votos="5000"
+        />
+      </BoxTextoHorizontal>
+
+      <BoxTextoHorizontal>
+        <QuadroFotoSegundo>
+          <QuadroPresGov />
+        </QuadroFotoSegundo>
+        <CandidatoBox
+          nome="João Silva"
+          partido="PSDB"
+          percentual="30.00"
+          votos="5000"
+        />
+      </BoxTextoHorizontal>
+
+      <GovPresDemaisCandidatos />
+
+    </ContainerGovernador>
+  )
+}
+
+export const ResultadoPresidente = () => {
+
+  return (
+
+    <ContainerPresidente>
+
+      <NomeCargo>
+        Presidente
+      </NomeCargo>
+
+      <BoxTextoHorizontal>
+        <QuadroPresGov />
+        <CandidatoBox
+          nome="João Silva"
+          partido="PSDB"
+          percentual="30.00"
+          votos="5000"
+        />
+      </BoxTextoHorizontal>
+
+      <BoxTextoHorizontal>
+        <QuadroFotoSegundo>
+          <QuadroPresGov />
+        </QuadroFotoSegundo>
+        <CandidatoBox
+          nome="João Silva"
+          partido="PSDB"
+          percentual="30.00"
+          votos="5000"
+        />
+      </BoxTextoHorizontal>
+
+      <GovPresDemaisCandidatos />
+
+    </ContainerPresidente>
+
+  )
+}
+

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const BarraContainer = styled.div`
+const BarraContainer = styled.div`
   display: flex;
   
 `
-export const EstadoSelecionado = styled.div`
+const EstadoSelecionado = styled.div`
   border: 1px solid #ccc;
   align-self: center;
   justify-self: center;
@@ -13,7 +13,7 @@ export const EstadoSelecionado = styled.div`
   font-size: 3rem;
   color: #484848;
 `
-export const SenadorVotos = styled.div`
+const SenadorVotos = styled.div`
   color: #484848;
   font-size: 0.6rem;
   letter-spacing: 0.1rem;
@@ -25,7 +25,7 @@ export const SenadorVotos = styled.div`
     font-size: 3rem;
   }
 `
-export const UrnasVotos = styled.div`
+const UrnasVotos = styled.div`
   flex-grow: 1;
   text-align: right;
   color: #484848;
@@ -45,4 +45,26 @@ export const UrnasVotos = styled.div`
     font-size: 3rem;
   }
 `
+const BarraSenador = () => {
 
+  return (
+
+    <BarraContainer>
+      <EstadoSelecionado>
+        DF
+      </EstadoSelecionado>
+
+      <SenadorVotos>
+        <span>Senador</span>
+        <p>1.895.697 eleitores</p>
+      </SenadorVotos>
+      <UrnasVotos>
+        <span>100,00%</span>
+        <p>Urnas Apuradas</p>
+      </UrnasVotos>
+    </BarraContainer>
+
+  )
+}
+
+export default BarraSenador;

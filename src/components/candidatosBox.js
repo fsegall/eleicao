@@ -5,22 +5,20 @@ import { NomeSenador, PartidoSenador, PercentualSenador, VotosSenador } from './
 const CandidatoBox = (props) => {
   return (
 
-    <React.Fragment>
-      <div>
-        <NomeSenador>
-          {props.nome}
-        </NomeSenador>
-        <PartidoSenador>
-          {props.partido}
-        </PartidoSenador>
-        <PercentualSenador>
-          {props.percentual}
-        </PercentualSenador>
-        <VotosSenador>
-          {props.votos}
-        </VotosSenador>
-      </div>
-    </React.Fragment>
+    <div>
+      <NomeSenador>
+        {props.nome}
+      </NomeSenador>
+      <PartidoSenador>
+        {props.partido}
+      </PartidoSenador>
+      <PercentualSenador>
+        {props.percentual}
+      </PercentualSenador>
+      <VotosSenador>
+        {props.votos}
+      </VotosSenador>
+    </div>
 
   )
 }

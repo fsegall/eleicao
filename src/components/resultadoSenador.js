@@ -1,8 +1,9 @@
 import React from 'react';
-/* import demaisCandidatos from './demaisCandidatos'; */
+import { DemaisCandidatos } from './demaisCandidatos';
+import SenadorBox from './senador';
 import styled from 'styled-components';
 
-export const ResultadoSenadoresContainer = styled.div`
+const ContainerResultadosSenadores = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   height: 30rem;
@@ -10,19 +11,19 @@ export const ResultadoSenadoresContainer = styled.div`
   text-align: center;
 `;
 
-export const SenadorPrimeiro = styled.div`
+const SenadorPrimeiro = styled.div`
   grid-column: 1 /2;
 `;
 
-export const SenadorSegundo = styled.div`
+const SenadorSegundo = styled.div`
   grid-column: 2 / 3;
 `;
 
-export const SenadorTerceiro = styled.div`
+const SenadorTerceiro = styled.div`
   grid-column: 3 / 4;
 `;
 
-export const SenadorQuarto = styled.div`
+const SenadorQuarto = styled.div`
   grid-column: 4 / 5;
 `;
 
@@ -81,3 +82,59 @@ export const Separador = styled.hr`
   height: 0.5rem;
   border: none;
 `;
+
+const ResultadoSenadores = () => {
+
+  return (
+
+    <React.Fragment>
+
+      <ContainerResultadosSenadores>
+
+        <SenadorPrimeiro>
+          <SenadorBox
+            eleito="sim"
+            nome="João Silva"
+            partido="PPS"
+            percentual="57.61"
+            votos="826.576"
+          />
+        </SenadorPrimeiro>
+
+        <SenadorSegundo>
+          <SenadorBox
+            eleito="sim"
+            nome="Joana Silva"
+            partido="PMDB"
+            percentual="18.92"
+            votos="826.576"
+          />
+        </SenadorSegundo>
+
+        <SenadorTerceiro>
+          <SenadorBox
+            nome="José Silva"
+            partido="PDT"
+            percentual="15.34"
+            votos="269.791"
+          />
+        </SenadorTerceiro>
+
+        <SenadorQuarto>
+          <SenadorBox
+            nome="Maria Silva"
+            partido="Rede"
+            percentual="15.07"
+            votos="265.562"
+          />
+        </SenadorQuarto>
+
+      </ContainerResultadosSenadores>
+
+      <DemaisCandidatos />
+
+    </React.Fragment>
+  )
+};
+
+export default ResultadoSenadores;
