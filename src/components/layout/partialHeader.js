@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  ${'' /* box-sizing: border-box; */}
   display: grid;
   padding: 0;
   background-color: #0095da;
@@ -25,12 +24,9 @@ export const NavTabEstados = styled.div`
 export const EstadosItem = styled.div`
   color: #5b5b5b;
   padding: 0.3rem;
-`;
-
-export const EstadosItemSelected = styled.div`
-  color: #5b5b5b;
-  padding: 0.3rem;
+  ${props => props.selecionado && css`
   border-bottom: 0.5rem solid #0095da;
+  `}
 `;
 
 

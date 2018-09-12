@@ -23,9 +23,9 @@ const Estados = () => {
       <EstadosItem>
         CE
       </EstadosItem>
-      <EstadosItemSelected>
+      <EstadosItem selecionado="sim">
         DF
-      </EstadosItemSelected>
+      </EstadosItem>
       <EstadosItem>
         ES
       </EstadosItem>
