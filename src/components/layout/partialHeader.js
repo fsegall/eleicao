@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  box-sizing: border-box;
+  ${'' /* box-sizing: border-box; */}
   display: grid;
   padding: 0;
   background-color: #0095da;

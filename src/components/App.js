@@ -7,8 +7,8 @@ import { DemaisCandidatosContainer, DemaisCandidatos } from './demaisCandidatos'
 import SenadorBox from './senador';
 import { ContainerResultados, NomeCargo, ContainerGovernador, ContainerPresidente, QuadroPresGov, GovernadorFoto2, GovPresDemaisCandidatos, FlexTest } from './resultadoPresidente_Governador';
 import CandidatoBox from './candidatosBox';
-import ImageBack from "./backImage";
 import styled from 'styled-components';
+import Footer from "./layout/partialFooter";
 
 
 
@@ -159,7 +159,7 @@ class App extends Component {
 
         </ContainerResultados>
 
-        <ImageBack />
+        <Footer />
       </React.Fragment>
     );
   }
