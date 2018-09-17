@@ -60,13 +60,13 @@ const UrnasVotos = styled.div`
 
 // Componente Completo
 
-const BarraSenador = () => {
+const BarraSenador = ({ uf }) => {
 
   return (
 
     <BarraContainer>
       <EstadoSelecionado>
-        DF
+        {uf}
       </EstadoSelecionado>
 
       <SenadorVotos>

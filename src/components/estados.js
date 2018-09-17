@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import BarraSenador from './barraResultadoSenadores';
 
 // Faz uma grid com 27 colunas para cada UF
 export const NavTabEstados = styled.div`
@@ -44,11 +45,14 @@ class Estados extends Component {
         {uf}
       </EstadosItem>
     )
+    const state = this.state.selecionado
     return (
-
-      <NavTabEstados >
-        {itensEstado}
-      </NavTabEstados>
+      <React.Fragment>
+        <NavTabEstados >
+          {itensEstado}
+        </NavTabEstados>
+        <BarraSenador uf={state} />
+      </React.Fragment>
     )
   }
 }

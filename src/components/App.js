@@ -21,8 +21,6 @@ class App extends Component {
 
         <Estados />
 
-        <BarraSenador />
-
         <ResultadoSenadores />
 
         <Separador />
