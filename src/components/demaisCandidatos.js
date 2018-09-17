@@ -1,36 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import Select from 'react-select';
+
+const SelectContainer = styled.div`
+  width: 96%;
+  margin: auto;
+  padding: 1rem 0 1rem 0;
+`;
+
+const options = [
+
+  { value: 'Demais Candidatos', label: 'Demais Candidatos' },
+  { value: 'Fulano', label: 'Fulano' },
+  { value: 'Beltrano', label: 'Beltrano' }
+]
 
 
-// Container para uso na grid do resultado dos Senadores
-
-const DemaisCandidatosContainer = styled.div`
-  padding: 1rem;
-  select {
-    width: 100%;
-    height: 2rem;
-    font-weight: bold;
-    color: #484848;
-    background-color: #fff;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-indent: 1px;
-    text-overflow: '';
-    padding-left: 0.5rem;
-  }
-`
-
-// Componente Senador
 
 export const DemaisCandidatos = () => {
   return (
-    <DemaisCandidatosContainer>
-      <select>
-        <option disabled selected>Demais candidatos</option>
-        <option value="Fulano">Fulano</option>
-        <option value="Beltrano">Beltrano</option>
-      </select>
-    </DemaisCandidatosContainer>
+    <SelectContainer>
+      <Select options={options} placeholder='Demais Candidatos' />
+    </SelectContainer>
   )
 };
 
@@ -45,7 +36,9 @@ const GovPresDemaisContainer = styled.div`
 export const GovPresDemaisCandidatos = () => {
   return (
     <GovPresDemaisContainer>
-      <DemaisCandidatos />
+      <SelectContainer>
+        <Select options={options} placeholder='Demais Candidatos' />
+      </SelectContainer>
     </GovPresDemaisContainer>
   );
 }

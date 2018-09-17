@@ -27,7 +27,7 @@ export const ContainerResultados = styled.div`
 // Resultados Governador
 
 const ContainerGovernador = styled.div`
-  grid-column: span 2;
+  grid-column: 1 / 3;
   grid-row: 1 / 3;
   border: 1px solid #ccc;
   margin: 0.5rem;
@@ -39,18 +39,39 @@ const ContainerGovernador = styled.div`
 // Resultados Presidente
 
 const ContainerPresidente = styled.div`
-  grid-column: span 4;
+  grid-column: 3 / 5;
   grid-row: 1 / 3;
   border: 1px solid #ccc;
   margin: 0.5rem;
   width: 100%;
   height: 100%;
   display: grid;
+  
+`;
+
+const resultadoPresDF = styled.span`
+  
+`;
+
+const resultadoNacional = styled.span`
+
 `;
 
 // Subcomponentes
 
 // Nome do Cargo
+
+const NomeCargoGov = styled.h3`
+  border-bottom: 1px solid #ccc;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  color: #484848;
+  margin: 1rem;
+  display: flex;
+  span {
+    margin-left: 1rem;
+  }
+`;
 
 const NomeCargo = styled.h3`
   border-bottom: 1px solid #ccc;
@@ -58,6 +79,8 @@ const NomeCargo = styled.h3`
   grid-row: 1 / 2;
   color: #484848;
   margin: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 // Foto Alinhada por padrão para o primeiro colocado
@@ -104,9 +127,12 @@ export const ResultadoGovernador = () => {
 
     <ContainerGovernador>
 
-      <NomeCargo>
+      <NomeCargoGov>
         Governador
-      </NomeCargo>
+        <span>Eleito</span>
+        {/* <span>Eleitos para o Segundo Turno</span> */}
+      </NomeCargoGov>
+
 
       <BoxTextoHorizontal>
         <QuadroPresGov>
@@ -145,10 +171,21 @@ export const ResultadoPresidente = () => {
   return (
 
     <ContainerPresidente>
-
       <NomeCargo>
-        Presidente
+        <span>
+          Presidente
+      </span>
+        <span>
+          DF
+      </span>
+        <span>
+          Nacional
+      </span>
       </NomeCargo>
+
+
+
+
 
       <BoxTextoHorizontal>
         <QuadroPresGov>
