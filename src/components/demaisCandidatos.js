@@ -9,7 +9,6 @@ const SelectContainer = styled.div`
 `;
 
 const options = [
-
   { value: 'Demais Candidatos', label: 'Demais Candidatos' },
   { value: 'Fulano', label: 'Fulano' },
   { value: 'Beltrano', label: 'Beltrano' }

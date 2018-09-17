@@ -21,23 +21,32 @@ export const EstadosItem = styled.div`
 // Os Estados
 const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
-/* Implementar onClick 
-/
-onClick = () => {}
-/
-*/
 
-const itensEstado = Ufs.map((uf, key) =>
-  <EstadosItem key={key} selecionado={uf === 'DF' ? true : false}>
-    {uf}
-  </EstadosItem>
-)
 
 class Estados extends Component {
+
+  state = {
+    estados: Ufs,
+    selecionado: ''
+  }
+
+  onClick = (uf) => {
+    console.log('clicked');
+    this.setState({
+      selecionado: uf
+    })
+    console.log(this.state);
+  }
+
   render() {
+    const itensEstado = Ufs.map((uf, key) =>
+      <EstadosItem onClick={this.onClick.bind(this, uf)} uf={uf} key={key} selecionado={uf === this.state.selecionado ? true : false}>
+        {uf}
+      </EstadosItem>
+    )
     return (
 
-      <NavTabEstados>
+      <NavTabEstados >
         {itensEstado}
       </NavTabEstados>
     )
