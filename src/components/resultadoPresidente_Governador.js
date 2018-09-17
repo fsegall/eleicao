@@ -71,6 +71,10 @@ const NomeCargoGov = styled.h3`
   span {
     margin-left: 1rem;
   }
+  .uf {
+    border-left: 0.3rem solid #0095da;
+    padding-left: 0.3rem;
+  }
 `;
 
 const NomeCargo = styled.h3`
@@ -81,6 +85,10 @@ const NomeCargo = styled.h3`
   margin: 1rem;
   display: flex;
   justify-content: space-between;
+  .uf {
+    border-left: 0.3rem solid #0095da;
+    padding-left: 0.3rem;
+  }
 `;
 
 // Foto Alinhada por padrão para o primeiro colocado
@@ -129,7 +137,7 @@ export const ResultadoGovernador = () => {
 
       <NomeCargoGov>
         Governador
-        <span>Eleito</span>
+        <span className="uf">Eleito</span>
         {/* <span>Eleitos para o Segundo Turno</span> */}
       </NomeCargoGov>
 
@@ -174,13 +182,14 @@ export const ResultadoPresidente = () => {
       <NomeCargo>
         <span>
           Presidente
-      </span>
-        <span>
+        </span>
+
+        <div className="uf">
           DF
-      </span>
-        <span>
+      </div>
+        <span className="uf">
           Nacional
-      </span>
+        </span>
       </NomeCargo>
 
 

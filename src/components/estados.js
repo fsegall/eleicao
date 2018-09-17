@@ -27,7 +27,7 @@ class Estados extends Component {
 
   state = {
     estados: Ufs,
-    selecionado: ''
+    selecionado: 'DF'
   }
 
   onClick = (uf) => {
