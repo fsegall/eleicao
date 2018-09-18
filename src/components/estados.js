@@ -6,7 +6,7 @@ import BarraSenador from './barraResultadoSenadores';
 export const NavTabEstados = styled.div`
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(26, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
   grid-gap: 0.3rem;
 `;
 
