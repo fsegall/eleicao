@@ -7,4 +7,5 @@ export const Separador = styled.hr`
   background-color: #ccc;
   height: 0.5rem;
   border: none;
+  display: block;
 `;

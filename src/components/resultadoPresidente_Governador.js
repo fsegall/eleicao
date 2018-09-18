@@ -22,6 +22,14 @@ export const ContainerResultados = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr 4fr;
   grid-gap: 2rem;
+
+  @media (max-width: 700px) {
+    
+    display: block;
+    margin-right: 1rem;
+    flex-wrap: wrap;
+  }
+  
 `;
 
 // Resultados Governador
@@ -47,14 +55,6 @@ const ContainerPresidente = styled.div`
   height: 100%;
   display: grid;
   
-`;
-
-const resultadoPresDF = styled.span`
-  
-`;
-
-const resultadoNacional = styled.span`
-
 `;
 
 // Subcomponentes
@@ -191,10 +191,6 @@ export const ResultadoPresidente = () => {
           Nacional
         </span>
       </NomeCargo>
-
-
-
-
 
       <BoxTextoHorizontal>
         <QuadroPresGov>
