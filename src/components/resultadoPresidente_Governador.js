@@ -23,11 +23,16 @@ export const ContainerResultados = styled.div`
   grid-template-rows: 1fr 4fr;
   grid-gap: 2rem;
 
-  @media (max-width: 700px) {
-    
-    display: block;
-    margin-right: 1rem;
+  @media (max-width: 768px) {
+    display: flex;
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 736){
+
+    display: block;
+    /* flex-direction: column; */
+    text-align: center;
   }
   
 `;
@@ -107,6 +112,14 @@ const QuadroPresGov = styled.div`
     height: 8rem;
     width: 6rem;
   }
+
+  @media (max-width: 736px){
+
+  display: block;
+  /* flex-direction: column; */
+  text-align: center;
+  margin: auto;
+  }
 `;
 
 // Grid se precisar posicionar algo no container da primeira foto
@@ -126,6 +139,10 @@ const QuadroFotoSegundo = styled.div`
 
 const BoxTextoHorizontal = styled.div`
   display: flex;
+  @media (max-width: 736px){
+  display: block;
+  text-align: center;
+}
 `;
 
 // Componentes Completos 

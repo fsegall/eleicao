@@ -14,10 +14,18 @@ import styled from 'styled-components';
 // Container de Grid
 
 const ContainerResultadosSenadores = styled.div`
+
   display: flex;
   justify-content: space-between;
   text-align: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    justify-items: center;
+    grid-gap: 1.3rem;
+  }
 `;
 
 
