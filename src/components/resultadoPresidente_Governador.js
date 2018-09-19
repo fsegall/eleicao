@@ -112,7 +112,6 @@ const QuadroPresGov = styled.div`
     height: 8rem;
     width: 6rem;
   }
-
   @media (max-width: 736px){
 
   display: block;

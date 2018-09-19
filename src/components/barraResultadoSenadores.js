@@ -14,7 +14,10 @@ const BarraContainer = styled.div`
   display: flex;
   margin: 2rem 0 2rem 0;
   flex-wrap: wrap;
-  
+  progress {
+    width: 100%;
+    margin-top: 0.8rem;
+  }
 `
 // Subcomponentes
 
@@ -31,34 +34,21 @@ const SenadorVotos = styled.div`
   font-size: 0.6rem;
   letter-spacing: 0.1rem;
   margin-left: 1rem;
-  border-bottom: 0.5rem solid #0095da;
-
-  > span {
-    display: block;
-    font-size: 3rem;
-  }
-`
-const UrnasVotos = styled.div`
   flex-grow: 1;
-  text-align: right;
-  color: #484848;
-  font-size: 0.6rem;
-  > span {
-    margin-right: 0.6rem;
-  }
-  > p {
-    margin-right: 1rem;
-  }
-  letter-spacing: 0.1rem;
-  border-bottom: 0.5rem solid #0095da;
-  
+  display: inline-block;
 
-  > span {
-    display: block;
-    font-size: 3rem;
+  span {
+    font-size: 1rem;
+  }
+
+  div.eleitores {
+    display: inline-block;
+  }
+  div.urnas {
+    text-align: right;
+    float: right;
   }
 `
-
 // Componente Completo
 
 const BarraSenador = ({ uf }) => {
@@ -66,19 +56,30 @@ const BarraSenador = ({ uf }) => {
   return (
 
     <BarraContainer>
+
       <EstadoSelecionado>
         {uf}
       </EstadoSelecionado>
 
       <SenadorVotos>
-        <span>Senador</span>
-        <p>1.895.697 eleitores</p>
+
+        <div className="eleitores">
+          <h1>Senador</h1>
+          <span>1.895.697</span>
+        </div>
+
+        <div className="urnas">
+          <h1>Urnas Apuradas</h1>
+          <span>100,00%</span>
+        </div>
+
+        <progress value="100" max="100"></progress>
+
       </SenadorVotos>
-      <UrnasVotos>
-        <span>100,00%</span>
-        <p>Urnas Apuradas</p>
-      </UrnasVotos>
+
     </BarraContainer>
+
+
 
   )
 }
