@@ -16,7 +16,7 @@ import styled from 'styled-components';
 const ContainerResultadosSenadores = styled.div`
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center;
   flex-wrap: wrap; 
 
