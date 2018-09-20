@@ -1,3 +1,8 @@
+
+# App Eleições
+> Script com comandos npm por conta do starter usado. Informações abaixo.
+
+
 # React Webpack Starter
 > This is a boilerplate for React 16 & Webpack 4. It includes webpack-dev-server and a build script
 
