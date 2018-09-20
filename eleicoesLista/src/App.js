@@ -5,7 +5,7 @@ import ListaEleicao from './listaEleicao';
 
 //Url's Para o simulado da eleição 2018 - cargo de Presidente
 
-const urlBRpres = 'http://interessados.divulgacao.tse.jus.br/2018/divulgacao/homologacaotre/7555/dadosdivweb/br/br-c0001-e007555-w.js';
+const urlBRpres = 'https://www12.senado.leg.br/_app/apuracao/ag/br/presidente.json';
 
 
 /* const urlACpres = "http://interessados.divulgacao.tse.jus.br/2018/divulgacao/homologacaotre/7555/dadosdivweb/ac/ac-c0001-e007555-w.js";
