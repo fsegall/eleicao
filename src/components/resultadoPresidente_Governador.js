@@ -29,9 +29,7 @@ export const ContainerResultados = styled.div`
   }
 
   @media (max-width: 736){
-
     display: block;
-    /* flex-direction: column; */
     text-align: center;
   }
   

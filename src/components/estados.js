@@ -35,35 +35,19 @@ const EscolhaEstadoMobile = styled.div`
 // Os Estados
 const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
-const options = [
-  { value: 'AC', label: 'AC' },
-  { value: 'AL', label: 'AL' },
-  { value: 'AM', label: 'AM' },
-  { value: 'AP', label: 'AP' },
-  { value: 'BA', label: 'BA' },
-  { value: 'CE', label: 'CE' },
-  { value: 'DF', label: 'DF' },
-  { value: 'ES', label: 'ES' },
-  { value: 'GO', label: 'GO' },
-  { value: 'MA', label: 'MA' },
-  { value: 'MG', label: 'MG' },
-  { value: 'MS', label: 'MS' },
-  { value: 'MT', label: 'MT' },
-  { value: 'PA', label: 'PA' },
-  { value: 'PB', label: 'PB' },
-  { value: 'PE', label: 'PE' },
-  { value: 'PI', label: 'PI' },
-  { value: 'PR', label: 'PR' },
-  { value: 'RJ', label: 'RJ' },
-  { value: 'RN', label: 'RN' },
-  { value: 'RR', label: 'RR' },
-  { value: 'RS', label: 'RS' },
-  { value: 'SC', label: 'SC' },
-  { value: 'SE', label: 'SE' },
-  { value: 'SP', label: 'SP' },
-  { value: 'TO', label: 'TO' }
-]
 
+// As opções para o select do mobile
+
+let options = [];
+
+const selectOptions = Ufs.forEach((uf) =>
+  options.push({ value: `${uf}`, label: `${uf}` })
+)
+
+console.log('options', options);
+
+
+// O componente para escolher o Estado
 
 class Estados extends Component {
 
