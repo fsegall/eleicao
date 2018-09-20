@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 20px;
+  margin-left: 2rem;
+}
+
+ul li {
+  padding: 20px;
+  text-align: center;
+}
+
+
+input {
+  margin: 1rem;
+}
+
+label {
+  color: gray;
+  font-weight: bold;
+}
