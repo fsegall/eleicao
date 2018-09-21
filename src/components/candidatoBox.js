@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { Component, createContext } from 'react';
 import styled from 'styled-components';
 import male from '../img/male-placeholder.png';
 import female from '../img/female-placeholder.jpg';
+import axios from 'axios';
+
+
 
 // Subcomponentes
 
@@ -64,38 +67,42 @@ const PartidoCandidato = styled.span`
 `;
 
 
-// Se o componente tiver a props eleitoSenador, renderiza o quadro e a barra de progresso com percentual de votos. Caso eleitoSenador seja 'sim', renderiza o span 'Eleito'.
+// Se o componente tiver a this.props eleitoSenador, renderiza o quadro e a barra de progresso com percentual de votos. Caso eleitoSenador seja 'sim', renderiza o span 'Eleito'.
 
-const CandidatoBox = (props) => {
-  return (
-    <div>
-      {/* <img src="./img/male-placeholder.png" /> */}
+class CandidatoBox extends Component {
 
-      {props.eleitoSenador && <SenadorQuadroFoto>
-        {props.eleitoSenador === "sim" ? <span>Eleito</span> : ""}
-        <img src={props.gender === 'male' ? male : female} />
+  render() {
+    return (
+      <div>
+        {/* <img src="./img/male-placeholder.png" /> */}
 
-      </SenadorQuadroFoto>}
+        {this.props.eleitoSenador && <SenadorQuadroFoto>
+          {this.props.eleitoSenador === "sim" ? <span>Eleito</span> : ""}
+          <img src={this.props.gender === 'male' ? male : female} />
 
-      <NomeCandidato>
-        {props.nome}
-      </NomeCandidato>
-      <PartidoCandidato>
-        {props.partido}
-      </PartidoCandidato>
-      <PercentualCandidato>
-        {props.percentual}
-      </PercentualCandidato>
-      <VotosCandidato>
-        {props.votos}
-      </VotosCandidato>
+        </SenadorQuadroFoto>}
+
+        <NomeCandidato>
+          {this.props.nome}
+        </NomeCandidato>
+        <PartidoCandidato>
+          {this.props.partido}
+        </PartidoCandidato>
+        <PercentualCandidato>
+          {this.props.percentual}
+        </PercentualCandidato>
+        <VotosCandidato>
+          {this.props.votos}
+        </VotosCandidato>
 
 
-      {props.eleitoSenador && <progress value={props.percentual} max="100">
-      </progress>}
+        {this.props.eleitoSenador && <progress value={this.props.percentual} max="100">
+        </progress>}
 
-    </div>
-  )
+      </div>
+    )
+
+  }
 }
 
 export default CandidatoBox;

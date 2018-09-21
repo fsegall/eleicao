@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { DemaisCandidatos } from './demaisCandidatos';
 import CandidatoBox from './candidatoBox';
 import styled from 'styled-components';
+import axios from 'axios';
+
+const UrlSenadorDF = 'https://www12.senado.leg.br/_app/apuracao/ag/df/senador.json';
 
 //
 // Padrão Usado no Arquivo
 // Container
-// Subcomponentes
 // Componentes Completos
 //
 
@@ -29,68 +31,93 @@ const ContainerResultadosSenadores = styled.div`
 `;
 
 
-// Subcomponentes de Grid
-
-
-
 // Componente Completo
 
-const ResultadoSenadores = () => {
+class ResultadoSenadores extends Component {
 
-  return (
+  constructor(props) {
+    super(props)
+    this.state = {
+      senadorDF: [],
+      isLoading: false
+    }
+    this.timer = null;
+    /* this.onchange = this.onChange.bind(this); */
+  }
 
-    <React.Fragment>
+  componentDidMount = () => {
+    this.setState({ isLoading: true });
+    this.timer = setInterval(
+      this.getListaEleicao, 2000
+    )
+  }
 
-      <ContainerResultadosSenadores>
+  componentWillUnmount = () => {
+    clearInterval(this.timer)
+  }
 
-        <CandidatoBox
-          gender="male"
-          eleitoSenador="sim"
-          nome="João Silva"
-          partido="PPS"
-          percentual="57.61"
-          votos="826.576"
-        />
+  getListaEleicao = () => {
 
+    axios.get(UrlSenadorDF)
+      .then((response) => {
+        console.log(response.data.cand);
+        console.log('ok');
+        this.setState({
+          senadorDF: response.data.cand.sort(function (
+            obj1,
+            obj2
+          ) {
+            return obj1.seq - obj2.seq;
+          }),
+          isLoading: false
+        })
+      })
+      .catch(err => console.log(err));
 
+  }
+  render() {
 
-        <CandidatoBox
-          gender="female"
-          eleitoSenador="sim"
-          nome="Joana Silva"
-          partido="PMDB"
-          percentual="18.92"
-          votos="826.576"
-        />
+    const { senadorDF, isLoading } = this.state;
 
+    if (isLoading) {
+      return <p>Loading...</p>
+    }
 
+    let arr = [];
 
-        <CandidatoBox
-          gender="male"
-          eleitoSenador="não"
-          nome="José Silva"
-          partido="PDT"
-          percentual="15.34"
-          votos="269.791"
-        />
+    const Primeiros = senadorDF.map((senador, index) => {
+      if (index < 4) {
+        arr.push(senador)
+      }
+    }
+    );
 
+    return (
 
+      <React.Fragment>
 
-        <CandidatoBox
-          gender="female"
-          eleitoSenador="não"
-          nome="Maria Silva"
-          partido="Rede"
-          percentual="15.07"
-          votos="265.562"
-        />
+        <ContainerResultadosSenadores>
 
-      </ContainerResultadosSenadores>
+          {arr.map((senador) =>
 
-      <DemaisCandidatos />
+            <CandidatoBox
+              gender="male"
+              eleitoSenador="sim"
+              nome={`${senador.nm}`}
+              partido={`${senador.cc}`}
+              percentual="100"
+              votos={`${senador.v}`}
+            />
 
-    </React.Fragment>
-  )
+          )}
+
+        </ContainerResultadosSenadores>
+
+        <DemaisCandidatos />
+
+      </React.Fragment>
+    )
+  }
 };
 
 export default ResultadoSenadores;
