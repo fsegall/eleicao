@@ -76,7 +76,7 @@ class Estados extends Component {
         {uf}
       </EstadosItem>
     )
-    const state = this.state.selecionado
+    const estadoSelecionado = this.state.selecionado
     return (
       <React.Fragment>
         <NavTabEstados >
@@ -90,7 +90,7 @@ class Estados extends Component {
             })
           }} />
         </EscolhaEstadoMobile>
-        <BarraSenador uf={state} />
+        <BarraSenador uf={estadoSelecionado} />
       </React.Fragment>
     )
   }
