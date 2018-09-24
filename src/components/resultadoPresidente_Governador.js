@@ -23,16 +23,11 @@ export const ContainerResultados = styled.div`
   grid-template-rows: 1fr 4fr;
   grid-gap: 2rem;
 
-  @media (max-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: 736){
+  @media (max-width: 1025px) {
     display: block;
     text-align: center;
+    margin-right: 1rem;
   }
-  
 `;
 
 // Resultados Governador
