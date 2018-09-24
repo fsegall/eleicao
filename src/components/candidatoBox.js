@@ -2,7 +2,6 @@ import React, { Component, createContext } from 'react';
 import styled from 'styled-components';
 import male from '../img/male-placeholder.png';
 import female from '../img/female-placeholder.jpg';
-import axios from 'axios';
 
 
 // Container Senadores
@@ -105,13 +104,11 @@ class CandidatoBox extends Component {
           {this.props.votos}
         </VotosCandidato>
 
-
-        {this.props.eleitoSenador && <progress value={this.props.percentual} max="100">
+        {this.props.eleito && this.props.eleitoSenador && <progress value={this.props.percentual} max="100">
         </progress>}
 
       </ContainerSenador>
     )
-
   }
 }
 

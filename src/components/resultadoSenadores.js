@@ -28,8 +28,6 @@ ${'' /*   display: flex;
   text-align: center;
   justify-content: space-evenly;
 
-  
-
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
@@ -115,12 +113,12 @@ class ResultadoSenadores extends Component {
 
         <ContainerResultadosSenadores>
 
-          {console.log('number', this.state.eleicaoSenadorDF.vnom)}
+
           {arr.map((senador, index) => {
 
             {/* console.log(senador.v, this.state.eleicaoSenadorDF.vnom); */ }
 
-            const senadorVotos = parseInt(senador.v) !== 0 ? parseInt(senador.v) : 1;
+            const senadorVotos = parseInt(senador.v);
 
             const totalDeVotos = parseInt(this.state.eleicaoSenadorDF.vnom) !== 0 ? parseInt(this.state.eleicaoSenadorDF.vnom) : 1;
 
@@ -129,6 +127,7 @@ class ResultadoSenadores extends Component {
               key={index}
               gender="male"
               eleitoSenador={`${senador.e}`}
+              eleito={`${senador.e}`}
               nome={`${senador.nm}`}
               partido={`${senador.cc}`}
               percentual={`${senadorVotos / totalDeVotos}`}

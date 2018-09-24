@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { GovPresDemaisCandidatos } from './demaisCandidatos';
 import CandidatoBox from './candidatoBox';
 import maleImage from '../img/male-placeholder.png';
-import femaleImage from '../img/female-placeholder.jpg';
+import axios from 'axios';
 
+const UrlGovernadorDF = 'https://www12.senado.leg.br/_app/apuracao/ag/df/governador.json';
+const UrlPresDF = 'https://www12.senado.leg.br/_app/apuracao/ag/df/presidente.json';
 //
 // Padrão Usado no Arquivo
 // Container
@@ -138,98 +140,214 @@ const BoxTextoHorizontal = styled.div`
 
 // Componentes Completos 
 
-export const ResultadoGovernador = () => {
-  return (
+export class ResultadoGovernador extends Component {
 
-    <ContainerGovernador>
+  constructor(props) {
+    super(props)
+    this.state = {
+      eleicaoGovernadorDF: [],
+      governadorDF: [],
+      isLoading: false
+    }
+    this.timer = null;
+    /* this.onchange = this.onChange.bind(this); */
+  }
 
-      <NomeCargoGov>
-        Governador
+  componentDidMount = () => {
+    this.setState({ isLoading: true });
+    this.timer = setInterval(
+      this.getListaEleicao, 1000
+    )
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer)
+  }
+
+  getListaEleicao = () => {
+
+    axios.get(UrlGovernadorDF)
+      .then((response) => {
+        /*         console.log(response.data.cand);
+                console.log('ok'); */
+        this.setState({
+          eleicaoGovernadorDF: response.data,
+          governadorDF: response.data.cand.sort(function (
+            obj1,
+            obj2
+          ) {
+            return obj1.seq - obj2.seq;
+          }),
+          isLoading: false
+        })
+      })
+      .catch(err => console.log(err));
+
+  }
+
+  render() {
+
+    const { eleicaoGovernadorDF, governadorDF, isLoading } = this.state;
+
+    /* console.log(eleicaoSenadorDF); */
+
+    if (isLoading) {
+      return <p>Loading...</p>
+    }
+
+    let arr = [];
+
+    const Primeiros = governadorDF.map((governador, index) => {
+      if (index < 2) {
+        arr.push(governador)
+      }
+    }
+    );
+
+    return (
+
+      <ContainerGovernador>
+
+        <NomeCargoGov>
+          Governador
         <span className="uf">Eleito</span>
-        {/* <span>Eleitos para o Segundo Turno</span> */}
-      </NomeCargoGov>
+          {/* <span>Eleitos para o Segundo Turno</span> */}
+        </NomeCargoGov>
+
+        {arr.map((governador, index) => {
 
 
-      <BoxTextoHorizontal>
-        <QuadroPresGov>
-          <img src={maleImage} />
-        </QuadroPresGov>
-        <CandidatoBox
-          nome="João Silva"
-          partido="PSDB"
-          percentual="30.00"
-          votos="5000"
-        />
-      </BoxTextoHorizontal>
 
-      <BoxTextoHorizontal>
-        <QuadroFotoSegundo>
-          <QuadroPresGov>
-            <img src={femaleImage} />
-          </QuadroPresGov>
-        </QuadroFotoSegundo>
-        <CandidatoBox
-          nome="Joana Silva"
-          partido="PSDB"
-          percentual="30.00"
-          votos="5000"
-        />
-      </BoxTextoHorizontal>
+          const governadorVotos = parseInt(governador.v);
 
-      <GovPresDemaisCandidatos />
+          const totalDeVotos = parseInt(this.state.eleicaoGovernadorDF.vnom) !== 0 ? parseInt(this.state.eleicaoGovernadorDF.vnom) : 1;
 
-    </ContainerGovernador>
-  )
+
+          return <BoxTextoHorizontal key={index}>
+            <QuadroPresGov>
+              <img src={maleImage} />
+            </QuadroPresGov>
+            <CandidatoBox
+              gender="male"
+              eleito={`${governador.e}`}
+              nome={`${governador.nm}`}
+              partido={`${governador.cc}`}
+              percentual={`${governadorVotos / totalDeVotos}`}
+              votos={`${governador.v}`}
+            />
+          </BoxTextoHorizontal>
+        }
+        )}
+        <GovPresDemaisCandidatos />
+
+      </ContainerGovernador>
+    )
+  }
 }
 
-export const ResultadoPresidente = () => {
+export class ResultadoPresidente extends Component {
 
-  return (
+  constructor(props) {
+    super(props)
+    this.state = {
+      eleicaoPresidenteDF: [],
+      presidenteDF: [],
+      isLoading: false
+    }
+    this.timer = null;
+    /* this.onchange = this.onChange.bind(this); */
+  }
 
-    <ContainerPresidente>
-      <NomeCargo>
-        <span>
-          Presidente
-        </span>
+  componentDidMount = () => {
+    this.setState({ isLoading: true });
+    this.timer = setInterval(
+      this.getListaEleicao, 1000
+    )
+  }
 
-        <div className="uf">
-          DF
-      </div>
-        <span className="uf">
-          Nacional
-        </span>
-      </NomeCargo>
+  componentWillUnmount = () => {
+    clearInterval(this.timer)
+  }
 
-      <BoxTextoHorizontal>
-        <QuadroPresGov>
-          <img src={maleImage} />
-        </QuadroPresGov>
-        <CandidatoBox
-          nome="João Silva"
-          partido="PSDB"
-          percentual="30.00"
-          votos="5000"
-        />
-      </BoxTextoHorizontal>
+  getListaEleicao = () => {
 
-      <BoxTextoHorizontal>
-        <QuadroFotoSegundo>
-          <QuadroPresGov>
-            <img src={femaleImage} />
-          </QuadroPresGov>
-        </QuadroFotoSegundo>
-        <CandidatoBox
-          nome="Maria Silva"
-          partido="PSDB"
-          percentual="30.00"
-          votos="5000"
-        />
-      </BoxTextoHorizontal>
+    axios.get(UrlPresDF)
+      .then((response) => {
+        /*         console.log(response.data.cand);
+                console.log('ok'); */
+        this.setState({
+          eleicaoPresidenteDF: response.data,
+          presidenteDF: response.data.cand.sort(function (
+            obj1,
+            obj2
+          ) {
+            return obj1.seq - obj2.seq;
+          }),
+          isLoading: false
+        })
+      })
+      .catch(err => console.log(err));
 
-      <GovPresDemaisCandidatos />
+  }
 
-    </ContainerPresidente>
+  render() {
 
-  )
+    const { eleicaoPresidenteDF, presidenteDF, isLoading } = this.state;
+
+    if (isLoading) {
+      return <p>Loading...</p>
+    }
+
+    let arr = [];
+
+    const Primeiros = presidenteDF.map((presidente, index) => {
+      if (index < 2) {
+        arr.push(presidente)
+      }
+    }
+    );
+
+    return (
+
+      <ContainerPresidente>
+
+        <NomeCargo>
+          <span>
+            Presidente
+            </span>
+
+          <div className="uf">
+            DF
+              </div>
+          <span className="uf">
+            Nacional
+            </span>
+        </NomeCargo>
+
+        {
+          arr.map((presidente, index) => {
+
+            const presidenteVotos = parseInt(presidente.v);
+
+            const totalDeVotos = parseInt(this.state.eleicaoPresidenteDF.vnom) !== 0 ? parseInt(this.state.eleicaoPresidenteDF.vnom) : 1;
+
+            return <BoxTextoHorizontal key={index}>
+              <QuadroPresGov>
+                <img src={maleImage} />
+              </QuadroPresGov>
+              <CandidatoBox
+                gender="male"
+                eleito={`${presidente.e}`}
+                nome={`${presidente.nm}`}
+                partido={`${presidente.cc}`}
+                percentual={`${presidenteVotos / totalDeVotos}`}
+                votos={`${presidente.v}`}
+              />
+            </BoxTextoHorizontal>
+          })
+        }
+        <GovPresDemaisCandidatos />
+      </ContainerPresidente>
+    )
+  }
 }
-
