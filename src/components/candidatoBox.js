@@ -5,13 +5,22 @@ import female from '../img/female-placeholder.jpg';
 import axios from 'axios';
 
 
+// Container Senadores
+
+const ContainerSenador = styled.div`
+  align-content: space-between;
+  display: grid;
+  progress {
+    justify-self: center;
+  }
+`;
 
 // Subcomponentes
 
 const SenadorQuadroFoto = styled.div`
-  height: 16rem;
+${'' /*   height: 16rem;
   width: 12rem;
-  border: 0.5rem solid #0095da;
+  border: 0.5rem solid #0095da; */}
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
@@ -29,6 +38,7 @@ const SenadorQuadroFoto = styled.div`
     
     height: 16rem;
     width: 12rem;
+    border: 0.5rem solid #0095da;
     
   }
 `;
@@ -73,11 +83,11 @@ class CandidatoBox extends Component {
 
   render() {
     return (
-      <div>
+      <ContainerSenador>
         {/* <img src="./img/male-placeholder.png" /> */}
 
         {this.props.eleitoSenador && <SenadorQuadroFoto>
-          {this.props.eleitoSenador === "sim" ? <span>Eleito</span> : ""}
+          {this.props.eleitoSenador === "s" ? <span>Eleito</span> : ""}
           <img src={this.props.gender === 'male' ? male : female} />
 
         </SenadorQuadroFoto>}
@@ -99,7 +109,7 @@ class CandidatoBox extends Component {
         {this.props.eleitoSenador && <progress value={this.props.percentual} max="100">
         </progress>}
 
-      </div>
+      </ContainerSenador>
     )
 
   }

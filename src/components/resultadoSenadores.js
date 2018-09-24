@@ -17,16 +17,28 @@ const UrlSenadorDF = 'https://www12.senado.leg.br/_app/apuracao/ag/df/senador.js
 
 const ContainerResultadosSenadores = styled.div`
 
-  display: flex;
-  justify-content: space-around;
+${'' /*   display: flex;
+  justify-content: space-between;
   text-align: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;  
+  repeat(auto-fit, minmax(20%, 1fr))*/}
+  display: grid;
+  ${'' /* grid-template-columns: repeat(4, 1fr); */}
+  grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+  text-align: center;
+  justify-content: space-evenly;
+
+  
 
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
     justify-items: center;
     grid-gap: 1.3rem;
+  }
+  @media (max-width: 430px) {
+    
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -38,6 +50,7 @@ class ResultadoSenadores extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      eleicaoSenadorDF: [],
       senadorDF: [],
       isLoading: false
     }
@@ -48,7 +61,7 @@ class ResultadoSenadores extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      this.getListaEleicao, 2000
+      this.getListaEleicao, 1000
     )
   }
 
@@ -60,9 +73,10 @@ class ResultadoSenadores extends Component {
 
     axios.get(UrlSenadorDF)
       .then((response) => {
-        console.log(response.data.cand);
-        console.log('ok');
+        /*         console.log(response.data.cand);
+                console.log('ok'); */
         this.setState({
+          eleicaoSenadorDF: response.data,
           senadorDF: response.data.cand.sort(function (
             obj1,
             obj2
@@ -75,9 +89,12 @@ class ResultadoSenadores extends Component {
       .catch(err => console.log(err));
 
   }
+
   render() {
 
-    const { senadorDF, isLoading } = this.state;
+    const { eleicaoSenadorDF, senadorDF, isLoading } = this.state;
+
+    /* console.log(eleicaoSenadorDF); */
 
     if (isLoading) {
       return <p>Loading...</p>
@@ -98,17 +115,26 @@ class ResultadoSenadores extends Component {
 
         <ContainerResultadosSenadores>
 
-          {arr.map((senador) =>
+          {console.log('number', this.state.eleicaoSenadorDF.vnom)}
+          {arr.map((senador, index) => {
 
-            <CandidatoBox
+            {/* console.log(senador.v, this.state.eleicaoSenadorDF.vnom); */ }
+
+            const senadorVotos = parseInt(senador.v) !== 0 ? parseInt(senador.v) : 1;
+
+            const totalDeVotos = parseInt(this.state.eleicaoSenadorDF.vnom) !== 0 ? parseInt(this.state.eleicaoSenadorDF.vnom) : 1;
+
+
+            return <CandidatoBox
+              key={index}
               gender="male"
-              eleitoSenador="sim"
+              eleitoSenador={`${senador.e}`}
               nome={`${senador.nm}`}
               partido={`${senador.cc}`}
-              percentual="100"
+              percentual={`${senadorVotos / totalDeVotos}`}
               votos={`${senador.v}`}
             />
-
+          }
           )}
 
         </ContainerResultadosSenadores>
