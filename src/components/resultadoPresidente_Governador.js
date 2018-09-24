@@ -92,7 +92,7 @@ const NomeCargo = styled.h3`
 // Foto Alinhada por padrão para o primeiro colocado
 
 const QuadroPresGov = styled.div`
-  ${'' /* position: relative; */}
+  
   height: 8rem;
   width: 6rem;
   border: 0.5rem solid #0095da;
@@ -101,14 +101,13 @@ const QuadroPresGov = styled.div`
   grid-row: 2 / 3;
   margin: 0 1rem 0 1rem;
   img {
-    ${'' /* position: absolute; */}
+   
     height: 8rem;
     width: 6rem;
   }
   @media (max-width: 736px){
 
   display: block;
-  /* flex-direction: column; */
   text-align: center;
   margin: auto;
   }
