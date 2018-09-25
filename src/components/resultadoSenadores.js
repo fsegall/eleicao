@@ -59,7 +59,7 @@ class ResultadoSenadores extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      this.getListaEleicao, 1000
+      this.getListaEleicao, 10000
     )
   }
 
@@ -122,6 +122,7 @@ class ResultadoSenadores extends Component {
 
             const totalDeVotos = parseInt(this.state.eleicaoSenadorDF.vnom) !== 0 ? parseInt(this.state.eleicaoSenadorDF.vnom) : 1;
 
+            const percentual = (senadorVotos / totalDeVotos * 100).toFixed(2);
 
             return <CandidatoBox
               key={index}
@@ -130,7 +131,7 @@ class ResultadoSenadores extends Component {
               eleito={`${senador.e}`}
               nome={`${senador.nm}`}
               partido={`${senador.cc}`}
-              percentual={`${senadorVotos / totalDeVotos}`}
+              percentual={percentual}
               votos={`${senador.v}`}
             />
           }

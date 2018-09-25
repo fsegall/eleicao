@@ -156,7 +156,7 @@ export class ResultadoGovernador extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      this.getListaEleicao, 1000
+      this.getListaEleicao, 10000
     )
   }
 
@@ -222,6 +222,7 @@ export class ResultadoGovernador extends Component {
 
           const totalDeVotos = parseInt(this.state.eleicaoGovernadorDF.vnom) !== 0 ? parseInt(this.state.eleicaoGovernadorDF.vnom) : 1;
 
+          const percentual = (governadorVotos / totalDeVotos * 100).toFixed(2);
 
           return <BoxTextoHorizontal key={index}>
             <QuadroPresGov>
@@ -232,7 +233,7 @@ export class ResultadoGovernador extends Component {
               eleito={`${governador.e}`}
               nome={`${governador.nm}`}
               partido={`${governador.cc}`}
-              percentual={`${governadorVotos / totalDeVotos}`}
+              percentual={percentual}
               votos={`${governador.v}`}
             />
           </BoxTextoHorizontal>
@@ -261,7 +262,7 @@ export class ResultadoPresidente extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      this.getListaEleicao, 1000
+      this.getListaEleicao, 10000
     )
   }
 
@@ -331,6 +332,8 @@ export class ResultadoPresidente extends Component {
 
             const totalDeVotos = parseInt(this.state.eleicaoPresidenteDF.vnom) !== 0 ? parseInt(this.state.eleicaoPresidenteDF.vnom) : 1;
 
+            const percentual = (presidenteVotos / totalDeVotos * 100).toFixed(2);
+
             return <BoxTextoHorizontal key={index}>
               <QuadroPresGov>
                 <img src={maleImage} />
@@ -340,7 +343,7 @@ export class ResultadoPresidente extends Component {
                 eleito={`${presidente.e}`}
                 nome={`${presidente.nm}`}
                 partido={`${presidente.cc}`}
-                percentual={`${presidenteVotos / totalDeVotos}`}
+                percentual={percentual}
                 votos={`${presidente.v}`}
               />
             </BoxTextoHorizontal>
