@@ -1,18 +1,9 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import ReduxPromise from "redux-promise";
+import rootReducer from '../reducers';
 
-const initialState = {
-  questions: [{ title: "" }]
-};
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-const rootReducer = (state = initialState, action) => {
-  if (action.type === "ADD_QUESTION") {
-    return Object.assign({}, state, {
-      questions: state.questions.concat(action.payload)
-    });
-  }
-  return state;
-};
-
-const store = createStore(rootReducer);
+const store = createStoreWithMiddleware(rootReducer);
 
 export default store;

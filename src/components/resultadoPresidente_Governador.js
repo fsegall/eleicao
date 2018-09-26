@@ -5,8 +5,12 @@ import CandidatoBox from './candidatoBox';
 import maleImage from '../img/male-placeholder.png';
 import axios from 'axios';
 
-const UrlGovernadorDF = 'https://www12.senado.leg.br/_app/apuracao/ag/df/governador.json';
 const UrlPresDF = 'https://www12.senado.leg.br/_app/apuracao/ag/df/presidente.json';
+
+import { construirUrls } from '../urlsEleicao';
+
+const UrlGovernadores = construirUrls('governador');
+
 //
 // Padrão Usado no Arquivo
 // Container
@@ -147,6 +151,7 @@ export class ResultadoGovernador extends Component {
     this.state = {
       eleicaoGovernadorDF: [],
       governadorDF: [],
+
       isLoading: false
     }
     this.timer = null;
@@ -166,10 +171,10 @@ export class ResultadoGovernador extends Component {
 
   getListaEleicao = () => {
 
-    axios.get(UrlGovernadorDF)
+    axios.get(UrlGovernadores.df)
       .then((response) => {
-        /*         console.log(response.data.cand);
-                console.log('ok'); */
+        /*         console.log(response.data.cand);*/
+        console.log('ok Governador');
         this.setState({
           eleicaoGovernadorDF: response.data,
           governadorDF: response.data.cand.sort(function (
@@ -274,8 +279,8 @@ export class ResultadoPresidente extends Component {
 
     axios.get(UrlPresDF)
       .then((response) => {
-        /*         console.log(response.data.cand);
-                console.log('ok'); */
+        /*         console.log(response.data.cand); */
+        console.log('ok Presidente');
         this.setState({
           eleicaoPresidenteDF: response.data,
           presidenteDF: response.data.cand.sort(function (

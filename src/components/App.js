@@ -22,11 +22,11 @@ class App extends Component {
 
         <Estados />
 
-        <ResultadoSenadores />
+        {/* <ResultadoSenadores /> */}
 
         <Separador />
 
-        <ContainerResultados>
+        <ContainerResultados >
 
           <ResultadoGovernador />
 

@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import BarraSenador from './barraResultadoSenadores';
 import Select from 'react-select';
+/* import { connect } from 'react-redux'; */
+import { construirUrls } from '../urlsEleicao';
+import ResultadoSenadores from './resultadoTeste';
+
+// Os Estados
+
+const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
+
+const UrlSenadores = construirUrls('senador');
+
+console.log('here', UrlSenadores);
 
 // Faz uma grid com 27 colunas para cada UF
 const NavTabEstados = styled.div`
@@ -31,11 +42,6 @@ const EscolhaEstadoMobile = styled.div`
   }
 `;
 
-
-// Os Estados
-const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
-
-
 // As opções para o select do mobile
 
 let options = [];
@@ -52,7 +58,7 @@ console.log('options', options);
 class Estados extends Component {
 
   state = {
-    estados: Ufs,
+    /* estados: Ufs, */
     selecionado: 'DF'
   }
 
@@ -70,13 +76,22 @@ class Estados extends Component {
       })
     } */
 
+  /*   componentDidMount() {
+  
+    } */
+
   render() {
+
     const itensEstado = Ufs.map((uf, key) =>
       <EstadosItem onClick={this.onClick.bind(this, uf)} uf={uf} key={key} selecionado={uf === this.state.selecionado ? true : false}>
         {uf}
       </EstadosItem>
     )
-    const estadoSelecionado = this.state.selecionado
+
+    const estadoSelecionado = this.state.selecionado.toLowerCase();
+
+    console.log('aqui', UrlSenadores);
+
     return (
       <React.Fragment>
         <NavTabEstados >
@@ -90,7 +105,9 @@ class Estados extends Component {
             })
           }} />
         </EscolhaEstadoMobile>
-        <BarraSenador uf={estadoSelecionado} />
+        <BarraSenador uf={this.state.selecionado} />
+        <ResultadoSenadores url={UrlSenadores[estadoSelecionado]} />
+
       </React.Fragment>
     )
   }
