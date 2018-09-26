@@ -4,13 +4,36 @@ import BarraSenador from './barraResultadoSenadores';
 import Select from 'react-select';
 /* import { connect } from 'react-redux'; */
 import { construirUrls } from '../urlsEleicao';
-import ResultadoSenadores from './resultadoTeste';
+import ResultadoSenadores from './resultadoSenadoresTeste';
+import ResultadoGovernadores from './governadoresTeste';
+import ResultadoPresidente from './presidenteTeste';
+import { Separador } from './layout/separador';
+
+
+// Bloco de resultados para Governador e Presidente
+
+const ContainerResultados = styled.div`
+  place-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 4fr;
+  grid-gap: 2rem;
+
+  @media (max-width: 1025px) {
+    display: block;
+    text-align: center;
+    margin-right: 1rem;
+  }
+`;
+
 
 // Os Estados
 
 const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
 const UrlSenadores = construirUrls('senador');
+const UrlGovernadores = construirUrls('governador');
+const UrlPresidente = construirUrls('presidente');
 
 console.log('here', UrlSenadores);
 
@@ -105,8 +128,20 @@ class Estados extends Component {
             })
           }} />
         </EscolhaEstadoMobile>
+
         <BarraSenador uf={this.state.selecionado} />
+
         <ResultadoSenadores url={UrlSenadores[estadoSelecionado]} />
+
+        <Separador />
+
+        <ContainerResultados>
+
+          <ResultadoGovernadores url={UrlGovernadores[estadoSelecionado]} />
+
+          <ResultadoPresidente url={UrlPresidente[estadoSelecionado]} />
+
+        </ContainerResultados>
 
       </React.Fragment>
     )

@@ -10,7 +10,6 @@ import axios from 'axios';
 // Componentes Completos
 //
 
-
 // Container de Grid
 
 const ContainerResultadosSenadores = styled.div`

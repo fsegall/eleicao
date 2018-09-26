@@ -24,7 +24,7 @@ class App extends Component {
 
         {/* <ResultadoSenadores /> */}
 
-        <Separador />
+        {/*         <Separador />
 
         <ContainerResultados >
 
@@ -33,7 +33,7 @@ class App extends Component {
           <ResultadoPresidente />
 
         </ContainerResultados>
-
+ */}
         <Footer />
 
       </React.Fragment>
