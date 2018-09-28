@@ -11,8 +11,6 @@ import axios from 'axios';
 // Componentes Completos
 //
 
-
-
 // Container de Grid
 
 // Resultados Governador
@@ -92,7 +90,6 @@ class ResultadoGovernadores extends Component {
       isLoading: false
     }
     this.timer = null;
-    /* this.onchange = this.onChange.bind(this); */
   }
 
   componentDidMount = () => {
@@ -103,7 +100,6 @@ class ResultadoGovernadores extends Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    console.log('componentProps', nextProps);
     clearInterval(this.timer)
     this.setState({
       eleicaoDados: [],
@@ -143,9 +139,6 @@ class ResultadoGovernadores extends Component {
 
     const { eleicaoDados, candidatoDados, isLoading } = this.state;
 
-
-    /* console.log(eleicaoSenadorDF); */
-
     if (isLoading) {
       return <p>Loading...</p>
     }
@@ -165,12 +158,12 @@ class ResultadoGovernadores extends Component {
         <NomeCargoGov>
           Governador
         <span className="uf">Eleito</span>
-          {/* <span>Eleitos para o Segundo Turno</span> */}
+
         </NomeCargoGov>
 
         {candidatos.map((candidato, index) => {
 
-          {/* console.log(senador.v, this.state.eleicaoSenadorDF.vnom); */ }
+
 
           const candidatoVotos = parseInt(candidato.v);
 

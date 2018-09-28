@@ -13,3 +13,9 @@ export function construirUrls(cargo) {
 
   return AllUrls;
 }
+
+
+/* export function construirUrlsImagens() {
+
+
+} */

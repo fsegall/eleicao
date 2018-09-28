@@ -12,7 +12,6 @@ import axios from 'axios';
 //
 
 
-
 // Container de Grid
 
 // Foto Alinhada por padrão para o primeiro colocado
@@ -31,11 +30,6 @@ const QuadroPresGov = styled.div`
     height: 8rem;
     width: 6rem;
   }
-${'' /*   @media (max-width: 736px){
-
-  display: block;
-  text-align: center;
-  } */}
 `;
 
 // Resultados Presidente
@@ -91,7 +85,6 @@ class ResultadoPresidente extends Component {
       isLoading: false
     }
     this.timer = null;
-    /* this.onchange = this.onChange.bind(this); */
   }
 
   componentDidMount = () => {
@@ -102,7 +95,6 @@ class ResultadoPresidente extends Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    console.log('componentProps', nextProps);
     clearInterval(this.timer)
     this.setState({
       eleicaoDados: [],
@@ -142,9 +134,6 @@ class ResultadoPresidente extends Component {
 
     const { eleicaoDados, candidatoDados, isLoading } = this.state;
 
-
-    /* console.log(eleicaoSenadorDF); */
-
     if (isLoading) {
       return <p>Loading...</p>
     }
@@ -175,8 +164,6 @@ class ResultadoPresidente extends Component {
         </NomeCargo>
 
         {candidatos.map((candidato, index) => {
-
-          {/* console.log(senador.v, this.state.eleicaoSenadorDF.vnom); */ }
 
           const candidatoVotos = parseInt(candidato.v);
 

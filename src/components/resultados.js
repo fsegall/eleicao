@@ -24,7 +24,6 @@ const ContainerResultados = styled.div`
   }
 `;
 
-
 // Os Estados
 
 const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
@@ -33,7 +32,6 @@ const UrlSenadores = construirUrls('senador');
 const UrlGovernadores = construirUrls('governador');
 const UrlPresidente = construirUrls('presidente');
 
-console.log('here', UrlSenadores);
 
 // Faz uma grid com 27 colunas para cada UF
 const NavTabEstados = styled.div`
@@ -71,15 +69,12 @@ const selectOptions = Ufs.forEach((uf) =>
   options.push({ value: `${uf}`, label: `${uf}` })
 )
 
-console.log('options', options);
-
 
 // O componente para escolher o Estado
 
 class Resultados extends Component {
 
   state = {
-    /* estados: Ufs, */
     selecionado: 'DF'
   }
 
@@ -100,8 +95,6 @@ class Resultados extends Component {
     )
 
     const estadoSelecionado = this.state.selecionado.toLowerCase();
-
-    console.log('aqui', UrlSenadores);
 
     return (
       <React.Fragment>

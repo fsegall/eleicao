@@ -13,14 +13,7 @@ import axios from 'axios';
 // Container de Grid
 
 const ContainerResultadosSenadores = styled.div`
-
-${'' /*   display: flex;
-  justify-content: space-between;
-  text-align: center;
-  flex-wrap: wrap;  
-  repeat(auto-fit, minmax(20%, 1fr))*/}
   display: grid;
-  ${'' /* grid-template-columns: repeat(4, 1fr); */}
   grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
   text-align: center;
   justify-content: space-evenly;
@@ -32,7 +25,6 @@ ${'' /*   display: flex;
     grid-gap: 1.3rem;
   }
   @media (max-width: 430px) {
-    
     grid-template-columns: 1fr;
   }
 `;
@@ -60,7 +52,6 @@ class ResultadoSenadores extends Component {
   }
 
   componentWillReceiveProps = (nextProps) => {
-    console.log('componentProps', nextProps);
     clearInterval(this.timer)
     this.setState({
       eleicaoDados: [],
@@ -79,7 +70,7 @@ class ResultadoSenadores extends Component {
   getListaEleicao = (url) => {
     axios.get(url)
       .then((response) => {
-        /*         console.log(response.data.cand); */
+
         console.log('Senadores ok');
         this.setState({
           eleicaoDados: response.data,
@@ -98,9 +89,6 @@ class ResultadoSenadores extends Component {
   render() {
 
     const { eleicaoDados, candidatoDados, isLoading } = this.state;
-
-
-    /* console.log(eleicaoSenadorDF); */
 
     if (isLoading) {
       return <p>Loading...</p>
@@ -123,8 +111,6 @@ class ResultadoSenadores extends Component {
 
 
           {candidatos.map((candidato, index) => {
-
-            {/* console.log(senador.v, this.state.eleicaoSenadorDF.vnom); */ }
 
             const candidatoVotos = parseInt(candidato.v);
 

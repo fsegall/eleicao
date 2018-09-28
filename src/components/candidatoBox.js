@@ -19,14 +19,9 @@ const ContainerTextoCandidato = styled.div`
   }
 `;
 
-
-
 // Subcomponentes
 
 const SenadorQuadroFoto = styled.div`
-${'' /*   height: 16rem;
-  width: 12rem;
-  border: 0.5rem solid #0095da; */}
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
@@ -112,14 +107,13 @@ const PartidoCandidatoSmall = styled.span`
 `;
 
 
-// Se o componente tiver a this.props eleitoSenador, renderiza o quadro e a barra de progresso com percentual de votos. Caso eleitoSenador seja 'sim', renderiza o span 'Eleito'.
+// Se o componente tiver a this.props eleitoSenador, renderiza o quadro e a barra de progresso com percentual de votos. Caso eleitoSenador seja 's', renderiza o span 'Eleito'.
 
 class CandidatoBox extends Component {
 
   render() {
     return (
       <ContainerTextoCandidato>
-        {/* <img src="./img/male-placeholder.png" /> */}
 
         {this.props.eleitoSenador && <SenadorQuadroFoto>
           {this.props.eleitoSenador === "s" ? <span>Eleito</span> : ""}
