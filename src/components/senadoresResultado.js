@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { DemaisCandidatos } from './demaisCandidatos';
 import CandidatoBox from './candidatoBox';
 import styled from 'styled-components';
-import axios from 'axios';
 
 //
 // Padrão Usado no Arquivo
@@ -17,12 +16,12 @@ const ContainerResultadosSenadores = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
   text-align: center;
   justify-content: space-evenly;
+  grid-gap: 1.3rem;
 
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
     justify-items: center;
-    grid-gap: 1.3rem;
   }
   @media (max-width: 430px) {
     grid-template-columns: 1fr;
@@ -30,116 +29,44 @@ const ContainerResultadosSenadores = styled.div`
 `;
 
 
-// Componente Completo
+// Componente Funcional
 
-class ResultadoSenadores extends Component {
+const ResultadoSenadores = (props) => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      eleicaoDados: [],
-      candidatoDados: [],
-      isLoading: false
-    }
-    this.timer = null;
-  }
+  return (
 
-  componentDidMount = () => {
-    this.setState({ isLoading: true });
-    this.timer = setInterval(
-      () => this.getListaEleicao(this.props.url), 3000
-    )
-  }
+    <React.Fragment>
 
-  componentWillReceiveProps = (nextProps) => {
-    clearInterval(this.timer)
-    this.setState({
-      eleicaoDados: [],
-      candidatoDados: [],
-      isLoading: true
-    });
-    this.timer = setInterval(
-      () => this.getListaEleicao(nextProps.url), 3000
-    )
-  }
-
-  componentWillUnmount = () => {
-    clearInterval(this.timer)
-  }
-
-  getListaEleicao = (url) => {
-    axios.get(url)
-      .then((response) => {
-
-        console.log('Senadores ok');
-        this.setState({
-          eleicaoDados: response.data,
-          candidatoDados: response.data.cand.sort(function (
-            obj1,
-            obj2
-          ) {
-            return obj1.seq - obj2.seq;
-          }),
-          isLoading: false
-        })
-      })
-      .catch(err => console.log(err));
-  }
-
-  render() {
-
-    const { eleicaoDados, candidatoDados, isLoading } = this.state;
-
-    if (isLoading) {
-      return <p>Loading...</p>
-    }
-
-    let candidatos = [];
-
-    const Primeiros = candidatoDados.map((candidato, index) => {
-      if (index < 4) {
-        candidatos.push(candidato)
-      }
-    }
-    );
-
-    return (
-
-      <React.Fragment>
-
-        <ContainerResultadosSenadores>
+      <ContainerResultadosSenadores>
 
 
-          {candidatos.map((candidato, index) => {
+        {props.candidatos.map((candidato, index) => {
 
-            const candidatoVotos = parseInt(candidato.v);
+          const candidatoVotos = parseInt(candidato.v);
 
-            const totalDeVotos = parseInt(eleicaoDados.vnom) !== 0 ? parseInt(eleicaoDados.vnom) : 1;
+          const totalDeVotos = parseInt(props.eleicaoDados.vnom) !== 0 ? parseInt(props.eleicaoDados.vnom) : 1;
 
-            const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
+          const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
 
-            return <CandidatoBox
-              key={index}
-              gender="male"
-              eleitoSenador={`${candidato.e}`}
-              eleito={`${candidato.e}`}
-              nome={`${candidato.nm}`}
-              partido={`${candidato.cc}`}
-              percentual={percentual}
-              votos={`${candidato.v}`}
-            />
-          }
-          )}
+          return <CandidatoBox
+            key={index}
+            gender="male"
+            eleitoSenador={`${candidato.e}`}
+            eleito={`${candidato.e}`}
+            nome={`${candidato.nm}`}
+            partido={`${candidato.cc}`}
+            percentual={percentual}
+            votos={`${candidato.v}`}
+          />
+        }
+        )}
 
-        </ContainerResultadosSenadores>
+      </ContainerResultadosSenadores>
 
-        <DemaisCandidatos />
+      <DemaisCandidatos />
 
-      </React.Fragment>
-    )
-  }
-};
+    </React.Fragment>
+  )
+}
 
 export default ResultadoSenadores;
-
-

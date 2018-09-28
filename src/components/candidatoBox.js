@@ -14,8 +14,8 @@ const ContainerTextoCandidato = styled.div`
     margin: 0.4rem 0 1rem 0;
   }
   transition: all 0.3s;
-  @media (max-width: 767px){
-  text-align: center;
+  @media (max-width: 1025px){
+  text-align: left;
   }
 `;
 
@@ -49,6 +49,7 @@ const NomeCandidato = styled.span`
   font-weight: bold;
   display: block;
   transition: all 0.3s;
+  padding-right: 0.3rem;
   @media (max-width: 767px){
   font-size: inherit;
   
@@ -113,7 +114,7 @@ class CandidatoBox extends Component {
 
   render() {
     return (
-      <ContainerTextoCandidato>
+      <ContainerTextoCandidato className="testing_align">
 
         {this.props.eleitoSenador && <SenadorQuadroFoto>
           {this.props.eleitoSenador === "s" ? <span>Eleito</span> : ""}

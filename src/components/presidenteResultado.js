@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { GovPresDemaisCandidatos } from './demaisCandidatos';
 import CandidatoBox from './candidatoBox';
 import maleImage from '../img/male-placeholder.png';
 import styled from 'styled-components';
-import axios from 'axios';
 
 //
 // Padrão Usado no Arquivo
@@ -38,9 +37,8 @@ const ContainerPresidente = styled.div`
   grid-column: 3 / 5;
   grid-row: 1 / 3;
   border: 1px solid #ccc;
-  width: 100%;
-  height: 100%;
   display: grid;
+  width: 100%;
   @media (min-width: 736px ) and (max-width: 1025px){
   text-align: left;
   }
@@ -75,122 +73,51 @@ const BoxTextoHorizontal = styled.div`
 
 // Componente Completo
 
-class ResultadoPresidente extends Component {
+const ResultadoPresidente = (props) => {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      eleicaoDados: [],
-      candidatoDados: [],
-      isLoading: false
-    }
-    this.timer = null;
-  }
+  return (
+    <ContainerPresidente>
 
-  componentDidMount = () => {
-    this.setState({ isLoading: true });
-    this.timer = setInterval(
-      () => this.getListaEleicao(this.props.url), 3000
-    )
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    clearInterval(this.timer)
-    this.setState({
-      eleicaoDados: [],
-      candidatoDados: [],
-      isLoading: true
-    });
-    this.timer = setInterval(
-      () => this.getListaEleicao(nextProps.url), 3000
-    )
-  }
-
-  componentWillUnmount = () => {
-    clearInterval(this.timer)
-  }
-
-
-  getListaEleicao = (url) => {
-    axios.get(url)
-      .then((response) => {
-
-        console.log('Presidente ok');
-        this.setState({
-          eleicaoDados: response.data,
-          candidatoDados: response.data.cand.sort(function (
-            obj1,
-            obj2
-          ) {
-            return obj1.seq - obj2.seq;
-          }),
-          isLoading: false
-        })
-      })
-      .catch(err => console.log(err));
-  }
-
-  render() {
-
-    const { eleicaoDados, candidatoDados, isLoading } = this.state;
-
-    if (isLoading) {
-      return <p>Loading...</p>
-    }
-
-    let candidatos = [];
-
-    const Primeiros = candidatoDados.map((candidato, index) => {
-      if (index < 2) {
-        candidatos.push(candidato)
-      }
-    }
-    );
-
-    return (
-      <ContainerPresidente>
-
-        <NomeCargo>
-          <span>
-            Presidente
+      <NomeCargo>
+        <span>
+          Presidente
             </span>
 
-          <div className="uf">
-            DF
+        <div className="uf">
+          DF
               </div>
-          <span className="uf">
-            Nacional
+        <span className="uf">
+          Nacional
             </span>
-        </NomeCargo>
+      </NomeCargo>
 
-        {candidatos.map((candidato, index) => {
+      {props.candidatos.map((candidato, index) => {
 
-          const candidatoVotos = parseInt(candidato.v);
+        const candidatoVotos = parseInt(candidato.v);
 
-          const totalDeVotos = parseInt(eleicaoDados.vnom) !== 0 ? parseInt(eleicaoDados.vnom) : 1;
+        const totalDeVotos = parseInt(props.eleicaoDados.vnom) !== 0 ? parseInt(props.eleicaoDados.vnom) : 1;
 
-          const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
+        const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
 
-          return <BoxTextoHorizontal key={index}>
-            <QuadroPresGov>
-              <img src={maleImage} />
-            </QuadroPresGov>
-            <CandidatoBox
-              key={index}
-              gender="male"
-              eleito={`${candidato.e}`}
-              nome={`${candidato.nm}`}
-              partido={`${candidato.cc}`}
-              percentual={percentual}
-              votos={`${candidato.v}`}
-            />
-          </BoxTextoHorizontal>
-        }
-        )}
-        <GovPresDemaisCandidatos />
-      </ContainerPresidente>
-    )
-  }
-};
+        return <BoxTextoHorizontal key={index}>
+          <QuadroPresGov>
+            <img src={maleImage} />
+          </QuadroPresGov>
+          <CandidatoBox
+            key={index}
+            gender="male"
+            eleito={`${candidato.e}`}
+            nome={`${candidato.nm}`}
+            partido={`${candidato.cc}`}
+            percentual={percentual}
+            votos={`${candidato.v}`}
+          />
+        </BoxTextoHorizontal>
+      }
+      )}
+      <GovPresDemaisCandidatos />
+    </ContainerPresidente>
+  )
+}
 
 export default ResultadoPresidente;

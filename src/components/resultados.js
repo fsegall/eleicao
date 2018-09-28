@@ -3,18 +3,20 @@ import styled, { css } from 'styled-components';
 import BarraSenador from './barraResultadoSenadores';
 import Select from 'react-select';
 import { construirUrls } from '../urlsEleicao';
-import ResultadoSenadores from './senadoresResultado';
-import ResultadoGovernadores from './governadoresResultado';
-import ResultadoPresidente from './presidenteResultado';
+/* import ResultadoSenadores from './senadoresResultado'; */
+/* import ResultadoGovernadores from './governadoresResultado';
+import ResultadoPresidente from './presidenteResultado'; */
+/* import { Separador } from './layout/separador'; */
+import ResultadoPorCargo from './resultadoPorCargo';
 import { Separador } from './layout/separador';
+
 
 
 // Bloco de resultados para Governador e Presidente
 
 const ContainerResultados = styled.div`
-  place-items: center;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 4fr;
   grid-gap: 2rem;
 
@@ -112,15 +114,15 @@ class Resultados extends Component {
 
         <BarraSenador uf={this.state.selecionado} />
 
-        <ResultadoSenadores url={UrlSenadores[estadoSelecionado]} />
+        <ResultadoPorCargo url={UrlSenadores[estadoSelecionado]} />
 
         <Separador />
 
         <ContainerResultados>
 
-          <ResultadoGovernadores url={UrlGovernadores[estadoSelecionado]} />
+          <ResultadoPorCargo url={UrlGovernadores[estadoSelecionado]} />
 
-          <ResultadoPresidente url={UrlPresidente[estadoSelecionado]} />
+          <ResultadoPorCargo url={UrlPresidente[estadoSelecionado]} />
 
         </ContainerResultados>
 
