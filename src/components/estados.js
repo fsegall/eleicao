@@ -22,7 +22,7 @@ const ContainerResultados = styled.div`
   @media (max-width: 1025px) {
     display: block;
     text-align: center;
-    margin-right: 1rem;
+    ${'' /* margin-right: 1rem; */}
   }
 `;
 

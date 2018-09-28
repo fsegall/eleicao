@@ -50,13 +50,12 @@ class ResultadoSenadores extends Component {
       isLoading: false
     }
     this.timer = null;
-    /* this.onchange = this.onChange.bind(this); */
   }
 
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      this.getListaEleicao(this.props.url), 1000
+      () => this.getListaEleicao(this.props.url), 3000
     )
   }
 
@@ -69,7 +68,7 @@ class ResultadoSenadores extends Component {
       isLoading: true
     });
     this.timer = setInterval(
-      this.getListaEleicao(nextProps.url), 1000
+      () => this.getListaEleicao(nextProps.url), 3000
     )
   }
 
@@ -77,13 +76,11 @@ class ResultadoSenadores extends Component {
     clearInterval(this.timer)
   }
 
-
   getListaEleicao = (url) => {
     axios.get(url)
       .then((response) => {
-        /*         console.log(response.data.cand);
-                console.log('ok'); */
-        console.log('Teste');
+        /*         console.log(response.data.cand); */
+        console.log('Senadores ok');
         this.setState({
           eleicaoDados: response.data,
           candidatoDados: response.data.cand.sort(function (

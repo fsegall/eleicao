@@ -21,10 +21,12 @@ const ContainerGovernador = styled.div`
   grid-column: 1 / 3;
   grid-row: 1 / 3;
   border: 1px solid #ccc;
-  margin: 0.5rem;
   width: 100%;
   height: 100%;
   display: grid;
+  @media (min-width: 736px ) and (max-width: 1025px){
+  text-align: left;
+  }
 `;
 
 // Nome do Cargo
@@ -65,7 +67,6 @@ const QuadroPresGov = styled.div`
 
   display: block;
   text-align: center;
-  margin: auto;
   }
 `;
 
@@ -74,8 +75,8 @@ const QuadroPresGov = styled.div`
 const BoxTextoHorizontal = styled.div`
   display: flex;
   @media (max-width: 736px){
-  display: block;
-  text-align: center;
+  grid-column: span 2;
+  margin-bottom: 0.8rem;
 }
 `;
 
@@ -97,7 +98,7 @@ class ResultadoGovernadores extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      this.getListaEleicao(this.props.url), 1000
+      () => this.getListaEleicao(this.props.url), 3000
     )
   }
 
@@ -110,7 +111,7 @@ class ResultadoGovernadores extends Component {
       isLoading: true
     });
     this.timer = setInterval(
-      this.getListaEleicao(nextProps.url), 1000
+      () => this.getListaEleicao(nextProps.url), 3000
     )
   }
 
@@ -122,9 +123,8 @@ class ResultadoGovernadores extends Component {
   getListaEleicao = (url) => {
     axios.get(url)
       .then((response) => {
-        /*         console.log(response.data.cand);
-                console.log('ok'); */
-        console.log('Teste');
+
+        console.log('Governadores ok');
         this.setState({
           eleicaoDados: response.data,
           candidatoDados: response.data.cand.sort(function (

@@ -5,6 +5,7 @@ import ResultadoSenadores from './resultadoSenadores';
 import { Separador } from './layout/separador';
 import { ContainerResultados, ResultadoGovernador, ResultadoPresidente } from './resultadoPresidente_Governador';
 import Footer from "./layout/partialFooter";
+import './styles/main.css';
 
 
 // Componentes Principais do App
