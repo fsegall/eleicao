@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import BarraSenador from './barraResultadoSenadores';
 import Select from 'react-select';
-/* import { connect } from 'react-redux'; */
 import { construirUrls } from '../urlsEleicao';
-import ResultadoSenadores from './resultadoSenadoresTeste';
-import ResultadoGovernadores from './governadoresTeste';
-import ResultadoPresidente from './presidenteTeste';
+import ResultadoSenadores from './senadoresResultado';
+import ResultadoGovernadores from './governadoresResultado';
+import ResultadoPresidente from './presidenteResultado';
 import { Separador } from './layout/separador';
 
 
@@ -22,7 +21,6 @@ const ContainerResultados = styled.div`
   @media (max-width: 1025px) {
     display: block;
     text-align: center;
-    ${'' /* margin-right: 1rem; */}
   }
 `;
 
@@ -78,7 +76,7 @@ console.log('options', options);
 
 // O componente para escolher o Estado
 
-class Estados extends Component {
+class Resultados extends Component {
 
   state = {
     /* estados: Ufs, */
@@ -92,16 +90,6 @@ class Estados extends Component {
     })
     console.log(this.state);
   }
-
-  /*   onChange = (uf) => {
-      this.setState({
-        selecionado: uf
-      })
-    } */
-
-  /*   componentDidMount() {
-  
-    } */
 
   render() {
 
@@ -148,4 +136,4 @@ class Estados extends Component {
   }
 }
 
-export default Estados;
+export default Resultados;

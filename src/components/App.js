@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import HeaderPrincipal from './layout/partialHeader';
-import Estados from './estados.js';
-import ResultadoSenadores from './resultadoSenadores';
-import { Separador } from './layout/separador';
-import { ContainerResultados, ResultadoGovernador, ResultadoPresidente } from './resultadoPresidente_Governador';
+import Resultados from './resultados';
 import Footer from "./layout/partialFooter";
 import './styles/main.css';
 
@@ -21,20 +18,8 @@ class App extends Component {
 
         <HeaderPrincipal />
 
-        <Estados />
+        <Resultados />
 
-        {/* <ResultadoSenadores /> */}
-
-        {/*         <Separador />
-
-        <ContainerResultados >
-
-          <ResultadoGovernador />
-
-          <ResultadoPresidente />
-
-        </ContainerResultados>
- */}
         <Footer />
 
       </React.Fragment>
