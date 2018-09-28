@@ -3,10 +3,6 @@ import styled, { css } from 'styled-components';
 import BarraSenador from './barraResultadoSenadores';
 import Select from 'react-select';
 import { construirUrls } from '../urlsEleicao';
-/* import ResultadoSenadores from './senadoresResultado'; */
-/* import ResultadoGovernadores from './governadoresResultado';
-import ResultadoPresidente from './presidenteResultado'; */
-/* import { Separador } from './layout/separador'; */
 import ResultadoPorCargo from './resultadoPorCargo';
 import { Separador } from './layout/separador';
 
@@ -17,7 +13,6 @@ import { Separador } from './layout/separador';
 const ContainerResultados = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 4fr;
   grid-gap: 2rem;
 
   @media (max-width: 1025px) {
