@@ -65,7 +65,7 @@ const ResultadoSenadores = (props) => {
       </ContainerResultadosSenadores>
 
       {/* <DemaisCandidatos /> */}
-      <OutrosCandidatos />
+      <OutrosCandidatos todos={props.todos} />
 
     </React.Fragment>
   )

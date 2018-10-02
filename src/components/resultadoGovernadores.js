@@ -20,7 +20,6 @@ const ContainerGovernador = styled.div`
   grid-row: 1 / 3;
   border: 1px solid #ccc;
   width: 100%;
-  height: 100%;
   display: grid;
   margin-bottom: 1rem;
 `;
@@ -125,7 +124,7 @@ const ResultadoGovernadores = (props) => {
       )}
       {/* <GovPresDemaisCandidatos /> */}
       <ContainerOutros>
-        <OutrosCandidatos />
+        <OutrosCandidatos todos={props.todos} />
       </ContainerOutros>
     </ContainerGovernador>
   )

@@ -126,7 +126,7 @@ const ResultadoPresidente = (props) => {
       {/* <GovPresDemaisCandidatos /> */}
 
       <ContainerOutros>
-        <OutrosCandidatos />
+        <OutrosCandidatos todos={props.todos} />
       </ContainerOutros>
 
     </ContainerPresidente>

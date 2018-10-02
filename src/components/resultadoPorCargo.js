@@ -67,28 +67,35 @@ export default class ResultadoPorCargo extends Component {
       return <p>Loading...</p>
     }
 
-    let candidatos = [];
+    let candidatosPrimeiros = [];
+    let todosCandidatos = [];
 
-    const Primeiros = candidatoDados.map((candidato, index) => {
+    candidatoDados.map((candidato, index) => {
       if (eleicaoDados.carper === '5' && index < 4) {
-        candidatos.push(candidato)
+        candidatosPrimeiros.push(candidato)
       } else if (index < '2') {
-        candidatos.push(candidato)
+        candidatosPrimeiros.push(candidato)
       }
     }
     );
+
+    const TodosCandidatos = candidatoDados.map((candidato, index) =>
+      todosCandidatos.push(candidato)
+    );
+
+
 
     return (
       <div>
         {console.log(eleicaoDados.carper)}
 
-        {eleicaoDados.carper === '5' && <ResultadoSenadores candidatos={candidatos} eleicaoDados={eleicaoDados} />}
+        {eleicaoDados.carper === '5' && <ResultadoSenadores candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} />}
 
 
-        {eleicaoDados.carper === '3' && <ResultadoGovernadores candidatos={candidatos} eleicaoDados={eleicaoDados} />}
+        {eleicaoDados.carper === '3' && <ResultadoGovernadores candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} />}
 
 
-        {eleicaoDados.carper === '1' && <ResultadoPresidente candidatos={candidatos} eleicaoDados={eleicaoDados} />}
+        {eleicaoDados.carper === '1' && <ResultadoPresidente candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} />}
 
       </div>
     );

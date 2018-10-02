@@ -42,8 +42,18 @@ const CandidatosLista = styled.ul`
   }`
 
 export default class OutrosCandidatos extends Component {
+
   state = {
-    open: false
+    open: false,
+    loading: false
+  }
+
+  componentDidMount = () => {
+    this.setState({ isLoading: true });
+  }
+
+  componentWillReceiveProps = () => {
+    this.setState({ isLoading: false });
   }
 
   onClick = (e) => {
@@ -56,23 +66,41 @@ export default class OutrosCandidatos extends Component {
     console.log(this.state.open);
   }
 
-  render() {
-    return (
 
+  render() {
+
+    const { todos } = this.props;
+    const { isLoading } = this.state;
+    console.log(todos);
+
+    if (isLoading) {
+      return (
+        <CandidatosListaContainer onClick={(e) => this.onClick(e)} open={this.state.open}>
+          <span className="title_collapse">Demais Candidatos</span>
+          <CandidatosLista open={this.state.open}>
+            <li>Loading...</li>
+          </CandidatosLista>
+        </CandidatosListaContainer>
+      )
+    }
+
+    const todosCandidatos = todos.map((candidato) => {
+
+      return (
+        <li>
+          {`O candidato ${candidato.nm} do partido ${candidato.cc} tem ${candidato.v} e está em ${candidato.seq} lugar.`}
+        </li>
+      );
+    });
+
+    return (
       <CandidatosListaContainer onClick={(e) => this.onClick(e)} open={this.state.open}>
         <span className="title_collapse">Demais Candidatos</span>
         <CandidatosLista open={this.state.open}>
-          <li>
-            João Silva
-          </li>
-          <li>
-            José Silva
-          </li>
-          <li>
-            Maria Souza
-          </li>
+          {todosCandidatos}
         </CandidatosLista>
       </CandidatosListaContainer>
-    )
+    );
   }
-} 
+}
+
