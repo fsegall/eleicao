@@ -1,5 +1,5 @@
-import React, { Component, createContext } from 'react';
-import styled, { css } from 'styled-components';
+import React, { Component } from 'react';
+import styled from 'styled-components';
 import male from '../img/male-placeholder.png';
 import female from '../img/female-placeholder.jpg';
 
@@ -29,7 +29,7 @@ const SenadorQuadroFoto = styled.div`
   span {
     position: absolute;
     
-    margin-top: -1.4rem;
+    margin-top: -1.2rem;
     padding: 10px 20px;
     background-color:#d84136;
     color: #fff;
@@ -39,7 +39,7 @@ const SenadorQuadroFoto = styled.div`
     
     height: 16rem;
     width: 12rem;
-    border: 0.5rem solid #0095da;
+    border: 3px solid #0095da;
     
   }
 `;

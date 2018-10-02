@@ -1,7 +1,8 @@
 import React from 'react';
-import { DemaisCandidatos } from './demaisCandidatos';
+/* import { DemaisCandidatos } from './demaisCandidatos'; */
 import CandidatoBox from './candidatoBox';
 import styled from 'styled-components';
+import OutrosCandidatos from './outrosCandidatos';
 
 //
 // Padrão Usado no Arquivo
@@ -63,7 +64,8 @@ const ResultadoSenadores = (props) => {
 
       </ContainerResultadosSenadores>
 
-      <DemaisCandidatos />
+      {/* <DemaisCandidatos /> */}
+      <OutrosCandidatos />
 
     </React.Fragment>
   )

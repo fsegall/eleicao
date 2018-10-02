@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ResultadoSenadores from './senadoresResultado';
-import ResultadoGovernadores from './governadoresResultado';
-import ResultadoPresidente from './presidenteResultado';
+import ResultadoSenadores from './resultadoSenadores';
+import ResultadoGovernadores from './resultadoGovernadores';
+import ResultadoPresidente from './resultadoPresidente';
 
 export default class ResultadoPorCargo extends Component {
 
@@ -19,7 +19,7 @@ export default class ResultadoPorCargo extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      () => this.getListaEleicao(this.props.url), 10000
+      () => this.getListaEleicao(this.props.url), 3000
     )
   }
 
@@ -31,7 +31,7 @@ export default class ResultadoPorCargo extends Component {
       isLoading: true
     });
     this.timer = setInterval(
-      () => this.getListaEleicao(nextProps.url), 10000
+      () => this.getListaEleicao(nextProps.url), 3000
     )
   }
 

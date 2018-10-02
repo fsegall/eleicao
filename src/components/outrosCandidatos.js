@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
 const CandidatosListaContainer = styled.div`
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1); 
+  margin: 1rem auto;
   background-color: #0095da;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   color: #fff;
   border-radius: 0.3rem;
   .title_collapse {
-    padding: 1rem;
+    padding: 0.5rem;
     display: inline-block;
   }
   ${(props) => props.open && css`
@@ -18,19 +20,25 @@ const CandidatosListaContainer = styled.div`
 const CandidatosLista = styled.ul`
   list-style-type: none;
   padding: 0;
-  margin:0;
+  margin: 0;
   li {
     display: none;
   }
   ${(props) => props.open && css`
-      li {
+    li {
       color: #484848;
-      border: 1px solid #ccc;
+      border: 1px solid #f4f4f4;
       padding: 20px;
       height: 100%;
       background-color: #fff;
       display: block;
-    }`
+    }
+    li:hover {
+      background-color: #f4f4f4;
+    }
+    
+    `
+
   }`
 
 export default class OutrosCandidatos extends Component {
@@ -38,7 +46,7 @@ export default class OutrosCandidatos extends Component {
     open: false
   }
 
-  onClick(e) {
+  onClick = (e) => {
     console.log(e);
     this.setState(
       {

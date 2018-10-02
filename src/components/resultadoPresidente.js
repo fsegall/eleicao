@@ -1,8 +1,9 @@
 import React from 'react';
-import { GovPresDemaisCandidatos } from './demaisCandidatos';
+/* import { GovPresDemaisCandidatos } from './demaisCandidatos'; */
 import CandidatoBox from './candidatoBox';
 import maleImage from '../img/male-placeholder.png';
 import styled from 'styled-components';
+import OutrosCandidatos from './outrosCandidatos';
 
 //
 // Padrão Usado no Arquivo
@@ -10,36 +11,14 @@ import styled from 'styled-components';
 // Componentes Completos
 //
 
+
 // Container de Grid
 
-// Resultados Governador
+// Outros candidatos
 
-const ContainerGovernador = styled.div`
-  grid-column: 1 / 3;
-  grid-row: 1 / 3;
-  border: 1px solid #ccc;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  margin-bottom: 1rem;
-`;
-
-// Nome do Cargo
-
-const NomeCargoGov = styled.h3`
-  border-bottom: 1px solid #ccc;
-  grid-column: 1 / 3;
-  grid-row: 1 / 2;
-  color: #484848;
-  margin: 1rem;
-  display: flex;
-  span {
-    margin-left: 1rem;
-  }
-  .uf {
-    border-left: 0.3rem solid #0095da;
-    padding-left: 0.3rem;
-  }
+const ContainerOutros = styled.div`
+  grid-column: span 2;
+  margin: 0 1rem;
 `;
 
 // Foto Alinhada por padrão para o primeiro colocado
@@ -48,7 +27,7 @@ const QuadroPresGov = styled.div`
   
   height: 8rem;
   width: 6rem;
-  border: 0.5rem solid #0095da;
+  border: 3px solid #0095da;
   margin-bottom: 0.5rem;
   grid-column: span 1;
   grid-row: 2 / 3;
@@ -58,12 +37,37 @@ const QuadroPresGov = styled.div`
     height: 8rem;
     width: 6rem;
   }
-  @media (max-width: 736px){
+`;
 
-  display: block;
-  text-align: center;
+// Resultados Presidente
+
+const ContainerPresidente = styled.div`
+  grid-column: 3 / 5;
+  grid-row: 1 / 3;
+  border: 1px solid #ccc;
+  display: grid;
+  width: 100%;
+  @media (min-width: 736px ) and (max-width: 1025px){
+  text-align: left;
   }
 `;
+
+
+const NomeCargo = styled.h3`
+  border-bottom: 1px solid #ccc;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  color: #484848;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  .uf {
+    border-left: 0.3rem solid #0095da;
+    padding-left: 0.3rem;
+  }
+`;
+
+// Subcomponentes
 
 // Display flex para alinhar texto ao lado da foto
 
@@ -72,26 +76,30 @@ const BoxTextoHorizontal = styled.div`
   @media (max-width: 736px){
   grid-column: span 2;
   margin-bottom: 0.8rem;
-  text-align: left;
 }
 `;
 
 // Componente Completo
 
-const ResultadoGovernadores = (props) => {
+const ResultadoPresidente = (props) => {
 
   return (
-    <ContainerGovernador>
+    <ContainerPresidente>
 
-      <NomeCargoGov>
-        Governador
-        <span className="uf">Eleito</span>
+      <NomeCargo>
+        <span>
+          Presidente
+            </span>
 
-      </NomeCargoGov>
+        <div className="uf">
+          DF
+              </div>
+        <span className="uf">
+          Nacional
+            </span>
+      </NomeCargo>
 
       {props.candidatos.map((candidato, index) => {
-
-
 
         const candidatoVotos = parseInt(candidato.v);
 
@@ -115,10 +123,14 @@ const ResultadoGovernadores = (props) => {
         </BoxTextoHorizontal>
       }
       )}
-      <GovPresDemaisCandidatos />
+      {/* <GovPresDemaisCandidatos /> */}
 
-    </ContainerGovernador>
+      <ContainerOutros>
+        <OutrosCandidatos />
+      </ContainerOutros>
+
+    </ContainerPresidente>
   )
 }
 
-export default ResultadoGovernadores;
+export default ResultadoPresidente;
