@@ -79,7 +79,7 @@ export default class ResultadoPorCargo extends Component {
     }
     );
 
-    const TodosCandidatos = candidatoDados.map((candidato, index) =>
+    candidatoDados.map((candidato) =>
       todosCandidatos.push(candidato)
     );
 
