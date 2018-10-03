@@ -2,6 +2,7 @@ import React from 'react';
 import CandidatoBox from './candidatoBox';
 import styled from 'styled-components';
 import OutrosCandidatos from './outrosCandidatos';
+import BarraSenador from './barraResultadoSenadores';
 
 //
 // Padrão Usado no Arquivo
@@ -33,9 +34,13 @@ const ContainerResultadosSenadores = styled.div`
 
 const ResultadoSenadores = (props) => {
 
+
+
   return (
 
     <React.Fragment>
+
+      <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} />
 
       <ContainerResultadosSenadores>
 
@@ -48,17 +53,25 @@ const ResultadoSenadores = (props) => {
 
           const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
 
-          return <CandidatoBox
-            key={index}
-            gender="male"
-            eleitoSenador={`${candidato.e}`}
-            eleito={`${candidato.e}`}
-            nome={`${candidato.nm}`}
-            partido={`${candidato.cc}`}
-            percentual={percentual}
-            votos={`${candidato.v}`}
-            srcImagem={`https://www12.senado.leg.br/_app/apuracao/foto/${props.uf}/senador/${candidato.n}/${candidato.sqcand}.jpeg`}
-          />
+          const ufUrl = props.uf.toLowerCase();
+
+          return (
+
+
+            <CandidatoBox
+              key={index}
+              gender="male"
+              eleitoSenador={`${candidato.e}`}
+              eleito={`${candidato.e}`}
+              nome={`${candidato.nm}`}
+              partido={`${candidato.cc}`}
+              percentual={percentual}
+              votos={`${candidato.v}`}
+              srcImagem={`https://www12.senado.leg.br/_app/apuracao/foto/${ufUrl}/senador/${candidato.n}/${candidato.sqcand}.jpeg`}
+            />
+
+
+          )
         }
         )}
 

@@ -60,7 +60,7 @@ const EscolhaEstadoMobile = styled.div`
 
 let options = [];
 
-const selectOptions = Ufs.forEach((uf) =>
+Ufs.forEach((uf) =>
   options.push({ value: `${uf}`, label: `${uf}` })
 )
 
@@ -108,7 +108,7 @@ class Resultados extends Component {
             }} />
           </EscolhaEstadoMobile>
 
-          <BarraSenador uf={this.state.selecionado} />
+          {/* <BarraSenador uf={this.state.selecionado} /> */}
 
           <ResultadoPorCargo url={"https://www12.senado.leg.br/_app/apuracao/ag/df/presidente.json"} uf={estadoSelecionado} />
 
@@ -132,9 +132,9 @@ class Resultados extends Component {
           }} />
         </EscolhaEstadoMobile>
 
-        <BarraSenador uf={this.state.selecionado} />
+        {/* <BarraSenador uf={this.state.selecionado} /> */}
 
-        <ResultadoPorCargo url={UrlSenadores[estadoSelecionado]} uf={estadoSelecionado} />
+        <ResultadoPorCargo url={UrlSenadores[estadoSelecionado]} uf={this.state.selecionado} />
 
         <Separador />
 

@@ -52,8 +52,8 @@ const SenadorVotos = styled.div`
 `
 // Componente Completo
 
-const BarraSenador = ({ uf }) => {
-
+const BarraSenador = ({ uf, eleicaoDados }) => {
+  console.log("uf é", uf);
   if (uf == 'BR') {
     return (
       <BarraContainer>
@@ -66,15 +66,15 @@ const BarraSenador = ({ uf }) => {
 
           <div className="eleitores">
             <h1>Presidente</h1>
-            <span>1.895.697</span>
+            <span>{eleicaoDados.tv}</span>
           </div>
 
           <div className="urnas">
             <h1>Urnas Apuradas</h1>
-            <span>100,00%</span>
+            <span>{eleicaoDados.ea / eleicaoDados.e * 100}</span>
           </div>
 
-          <progress value="100" max="100"></progress>
+          <BarraDeProgresso percentual="100" uf={uf} />
 
         </SenadorVotos>
 
@@ -95,15 +95,13 @@ const BarraSenador = ({ uf }) => {
 
         <div className="eleitores">
           <h1>Senador</h1>
-          <span>1.895.697</span>
+          <span>{`Votos - ${eleicaoDados.tv}`}</span>
         </div>
 
         <div className="urnas">
           <h1>Urnas Apuradas</h1>
-          <span>100,00%</span>
+          <span>{eleicaoDados.ea / eleicaoDados.e * 100}</span>
         </div>
-
-        {/* <progress value="100" max="100"></progress> */}
 
         <BarraDeProgresso percentual="100" uf={uf} />
 
