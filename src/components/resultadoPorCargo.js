@@ -89,13 +89,13 @@ export default class ResultadoPorCargo extends Component {
       <div>
         {console.log(eleicaoDados.carper)}
 
-        {eleicaoDados.carper === '5' && <ResultadoSenadores candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} />}
+        {eleicaoDados.carper === '5' && <ResultadoSenadores candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} uf={this.props.uf} />}
 
 
-        {eleicaoDados.carper === '3' && <ResultadoGovernadores candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} />}
+        {eleicaoDados.carper === '3' && <ResultadoGovernadores candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} uf={this.props.uf} />}
 
 
-        {eleicaoDados.carper === '1' && <ResultadoPresidente candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} />}
+        {eleicaoDados.carper === '1' && <ResultadoPresidente candidatos={candidatosPrimeiros} eleicaoDados={eleicaoDados} todos={todosCandidatos} uf={this.props.uf} />}
 
       </div>
     );

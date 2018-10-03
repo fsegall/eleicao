@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import BarraDeProgresso from './barraDeProgresso';
 
 //
 // Padrão Usado no Arquivo
@@ -53,6 +54,35 @@ const SenadorVotos = styled.div`
 
 const BarraSenador = ({ uf }) => {
 
+  if (uf == 'BR') {
+    return (
+      <BarraContainer>
+
+        <EstadoSelecionado>
+          {uf}
+        </EstadoSelecionado>
+
+        <SenadorVotos>
+
+          <div className="eleitores">
+            <h1>Presidente</h1>
+            <span>1.895.697</span>
+          </div>
+
+          <div className="urnas">
+            <h1>Urnas Apuradas</h1>
+            <span>100,00%</span>
+          </div>
+
+          <progress value="100" max="100"></progress>
+
+        </SenadorVotos>
+
+      </BarraContainer>
+
+    );
+  }
+
   return (
 
     <BarraContainer>
@@ -73,7 +103,9 @@ const BarraSenador = ({ uf }) => {
           <span>100,00%</span>
         </div>
 
-        <progress value="100" max="100"></progress>
+        {/* <progress value="100" max="100"></progress> */}
+
+        <BarraDeProgresso percentual="100" uf={uf} />
 
       </SenadorVotos>
 

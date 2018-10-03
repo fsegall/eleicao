@@ -1,5 +1,4 @@
 import React from 'react';
-/* import { DemaisCandidatos } from './demaisCandidatos'; */
 import CandidatoBox from './candidatoBox';
 import styled from 'styled-components';
 import OutrosCandidatos from './outrosCandidatos';
@@ -58,6 +57,7 @@ const ResultadoSenadores = (props) => {
             partido={`${candidato.cc}`}
             percentual={percentual}
             votos={`${candidato.v}`}
+            srcImagem={`https://www12.senado.leg.br/_app/apuracao/foto/${props.uf}/senador/${candidato.n}/${candidato.sqcand}.jpeg`}
           />
         }
         )}

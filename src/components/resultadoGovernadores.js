@@ -86,7 +86,7 @@ const BoxTextoHorizontal = styled.div`
 // Componente Completo
 
 const ResultadoGovernadores = (props) => {
-
+  console.log('chegou', props.uf);
   return (
     <ContainerGovernador>
 
@@ -108,7 +108,7 @@ const ResultadoGovernadores = (props) => {
 
         return <BoxTextoHorizontal key={index}>
           <QuadroPresGov>
-            <img src={maleImage} />
+            <img src={`https://www12.senado.leg.br/_app/apuracao/foto/${props.uf}/governador/${candidato.n}/${candidato.sqcand}.jpeg`} />
           </QuadroPresGov>
           <CandidatoBox
             key={index}

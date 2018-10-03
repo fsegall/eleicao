@@ -1,7 +1,5 @@
 import React from 'react';
-/* import { GovPresDemaisCandidatos } from './demaisCandidatos'; */
 import CandidatoBox from './candidatoBox';
-import maleImage from '../img/male-placeholder.png';
 import styled from 'styled-components';
 import OutrosCandidatos from './outrosCandidatos';
 
@@ -33,7 +31,7 @@ const QuadroPresGov = styled.div`
   grid-row: 2 / 3;
   margin: 0 1rem 0 1rem;
   img {
-   
+    ${'' /* object-fit: scale-down; */}
     height: 8rem;
     width: 6rem;
   }
@@ -60,7 +58,9 @@ const NomeCargo = styled.h3`
   color: #484848;
   margin: 1rem;
   display: flex;
-  justify-content: space-between;
+  span {
+    margin-right: 1rem;
+  }
   .uf {
     border-left: 0.3rem solid #0095da;
     padding-left: 0.3rem;
@@ -82,21 +82,21 @@ const BoxTextoHorizontal = styled.div`
 // Componente Completo
 
 const ResultadoPresidente = (props) => {
-
+  console.log('Presidente Props', props.uf);
   return (
     <ContainerPresidente>
 
       <NomeCargo>
         <span>
           Presidente
-            </span>
+        </span>
 
         <div className="uf">
           DF
-              </div>
-        <span className="uf">
+        </div>
+        {/*         <span className="uf">
           Nacional
-            </span>
+        </span> */}
       </NomeCargo>
 
       {props.candidatos.map((candidato, index) => {
@@ -109,7 +109,7 @@ const ResultadoPresidente = (props) => {
 
         return <BoxTextoHorizontal key={index}>
           <QuadroPresGov>
-            <img src={maleImage} />
+            <img src={`https://www12.senado.leg.br/_app/apuracao/foto/br/presidente/${candidato.n}/${candidato.sqcand}.jpeg`} />
           </QuadroPresGov>
           <CandidatoBox
             key={index}

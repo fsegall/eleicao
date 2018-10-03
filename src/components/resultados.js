@@ -6,8 +6,6 @@ import { construirUrls } from '../urlsEleicao';
 import ResultadoPorCargo from './resultadoPorCargo';
 import { Separador } from './layout/separador';
 
-
-
 // Bloco de resultados para Governador e Presidente
 
 const ContainerResultados = styled.div`
@@ -93,6 +91,33 @@ class Resultados extends Component {
 
     const estadoSelecionado = this.state.selecionado.toLowerCase();
 
+    console.log('url Brasil', UrlPresidente[estadoSelecionado]);
+
+    if (estadoSelecionado == 'br') {
+      return (
+        <React.Fragment>
+          <NavTabEstados >
+            {itensEstado}
+          </NavTabEstados>
+          <EscolhaEstadoMobile>
+            <Select options={options} placeholder='Escolha o Estado' onChange={(e) => {
+              console.log(e);
+              this.setState({
+                selecionado: e.value
+              })
+            }} />
+          </EscolhaEstadoMobile>
+
+          <BarraSenador uf={this.state.selecionado} />
+
+          <ResultadoPorCargo url={"https://www12.senado.leg.br/_app/apuracao/ag/df/presidente.json"} uf={estadoSelecionado} />
+
+          <Separador />
+
+        </React.Fragment>
+      );
+    }
+
     return (
       <React.Fragment>
         <NavTabEstados >
@@ -109,15 +134,15 @@ class Resultados extends Component {
 
         <BarraSenador uf={this.state.selecionado} />
 
-        <ResultadoPorCargo url={UrlSenadores[estadoSelecionado]} />
+        <ResultadoPorCargo url={UrlSenadores[estadoSelecionado]} uf={estadoSelecionado} />
 
         <Separador />
 
         <ContainerResultados>
 
-          <ResultadoPorCargo url={UrlGovernadores[estadoSelecionado]} />
+          <ResultadoPorCargo url={UrlGovernadores[estadoSelecionado]} uf={estadoSelecionado} />
 
-          <ResultadoPorCargo url={UrlPresidente[estadoSelecionado]} />
+          <ResultadoPorCargo url={UrlPresidente[estadoSelecionado]} uf={estadoSelecionado} />
 
         </ContainerResultados>
 

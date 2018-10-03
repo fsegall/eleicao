@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import male from '../img/male-placeholder.png';
 import female from '../img/female-placeholder.jpg';
+import BarraDeProgresso from './barraDeProgresso';
 
 
 // Container Senadores
@@ -118,7 +119,7 @@ class CandidatoBox extends Component {
 
         {this.props.eleitoSenador && <SenadorQuadroFoto>
           {this.props.eleitoSenador === "s" ? <span>Eleito</span> : ""}
-          <img src="https://www12.senado.leg.br/_app/apuracao/foto/es/senador/200/80000733770.jpeg" />
+          <img src={this.props.srcImagem} />
 
         </SenadorQuadroFoto>}
 
@@ -150,8 +151,10 @@ class CandidatoBox extends Component {
           {this.props.votos}
         </VotosCandidato>
 
-        {this.props.eleito && this.props.eleitoSenador && <progress value={this.props.percentual} max="100">
-        </progress>}
+        {/*         {this.props.eleito && this.props.eleitoSenador && <progress value={this.props.percentual} max="100">
+        </progress>} */}
+
+        {this.props.eleito && this.props.eleitoSenador && <BarraDeProgresso percentual={this.props.percentual} />}
 
       </ContainerTextoCandidato>
     )
