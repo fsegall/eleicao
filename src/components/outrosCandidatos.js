@@ -27,6 +27,7 @@ const CandidatosLista = styled.ul`
   ${(props) => props.open && css`
     li {
       color: #484848;
+      font-size: 1rem;
       border: 1px solid #f4f4f4;
       padding: 20px;
       height: 100%;
@@ -84,11 +85,11 @@ export default class OutrosCandidatos extends Component {
       )
     }
 
-    const todosCandidatos = todos.map((candidato) => {
+    const todosCandidatos = todos.map((candidato, index) => {
 
       return (
-        <li>
-          {`O candidato ${candidato.nm} do partido ${candidato.cc} tem ${candidato.v} e está em ${candidato.seq} lugar.`}
+        <li key={index}>
+          {`O candidato ${candidato.nm} do partido ${candidato.cc} tem ${candidato.v} votos e ${candidato.e == "s" ? "" : "não"} está eleito em ${candidato.seq} lugar com o estatus da candidatura considerada como ${candidato.dsit} pelo TSE.`}
         </li>
       );
     });
@@ -103,4 +104,3 @@ export default class OutrosCandidatos extends Component {
     );
   }
 }
-

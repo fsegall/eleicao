@@ -107,7 +107,7 @@ const PartidoCandidatoSmall = styled.span`
   }
 `;
 
-
+// <img src={this.props.gender === 'male' ? male : female} />
 // Se o componente tiver a this.props eleitoSenador, renderiza o quadro e a barra de progresso com percentual de votos. Caso eleitoSenador seja 's', renderiza o span 'Eleito'.
 
 class CandidatoBox extends Component {
@@ -118,7 +118,7 @@ class CandidatoBox extends Component {
 
         {this.props.eleitoSenador && <SenadorQuadroFoto>
           {this.props.eleitoSenador === "s" ? <span>Eleito</span> : ""}
-          <img src={this.props.gender === 'male' ? male : female} />
+          <img src="https://www12.senado.leg.br/_app/apuracao/foto/es/senador/200/80000733770.jpeg" />
 
         </SenadorQuadroFoto>}
 
