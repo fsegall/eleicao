@@ -29,6 +29,7 @@ const EstadoSelecionado = styled.div`
   padding: 1rem;
   font-size: 3rem;
   color: #484848;
+  text-transform: uppercase;
 `
 const SenadorVotos = styled.div`
   color: #484848;
@@ -54,7 +55,7 @@ const SenadorVotos = styled.div`
 
 const BarraSenador = ({ uf, eleicaoDados }) => {
   console.log("uf é", uf);
-  if (uf == 'BR') {
+  if (uf === 'br') {
     return (
       <BarraContainer>
 
@@ -66,7 +67,7 @@ const BarraSenador = ({ uf, eleicaoDados }) => {
 
           <div className="eleitores">
             <h1>Presidente</h1>
-            <span>{eleicaoDados.tv}</span>
+            <span>{`${eleicaoDados.tv} votos`}</span>
           </div>
 
           <div className="urnas">
@@ -79,6 +80,29 @@ const BarraSenador = ({ uf, eleicaoDados }) => {
         </SenadorVotos>
 
       </BarraContainer>
+      /*       <BarraContainer>
+      
+              <EstadoSelecionado>
+                {uf}
+              </EstadoSelecionado>
+      
+              <SenadorVotos>
+      
+                <div className="eleitores">
+                  <h1>Presidente</h1>
+                  <span>{eleicaoDados.tv}</span>
+                </div>
+      
+                <div className="urnas">
+                  <h1>Urnas Apuradas</h1>
+                  <span>{eleicaoDados.ea / eleicaoDados.e * 100}</span>
+                </div>
+      
+                <BarraDeProgresso percentual="100" uf={uf} />
+      
+              </SenadorVotos>
+      
+            </BarraContainer> */
 
     );
   }
@@ -95,7 +119,7 @@ const BarraSenador = ({ uf, eleicaoDados }) => {
 
         <div className="eleitores">
           <h1>Senador</h1>
-          <span>{`Votos - ${eleicaoDados.tv}`}</span>
+          <span>{`${eleicaoDados.tv} votos`}</span>
         </div>
 
         <div className="urnas">

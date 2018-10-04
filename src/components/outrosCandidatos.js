@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components';
 
 const CandidatosListaContainer = styled.div`
   box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.1); 
+  border: 1px solid #ccc;
   margin: 1rem auto;
-  background-color: #0095da;
   font-size: 1.5rem;
   text-align: center;
-  color: #fff;
+  color: #484848;
   border-radius: 0.3rem;
   .title_collapse {
     padding: 0.5rem;

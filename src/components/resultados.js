@@ -110,6 +110,8 @@ class Resultados extends Component {
 
           {/* <BarraSenador uf={this.state.selecionado} /> */}
 
+          {/* <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} /> */}
+
           <ResultadoPorCargo url={"https://www12.senado.leg.br/_app/apuracao/ag/df/presidente.json"} uf={estadoSelecionado} />
 
           <Separador />
@@ -131,8 +133,6 @@ class Resultados extends Component {
             })
           }} />
         </EscolhaEstadoMobile>
-
-        {/* <BarraSenador uf={this.state.selecionado} /> */}
 
         <ResultadoPorCargo url={UrlSenadores[estadoSelecionado]} uf={this.state.selecionado} />
 

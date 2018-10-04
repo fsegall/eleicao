@@ -67,7 +67,7 @@ const ResultadoSenadores = (props) => {
               partido={`${candidato.cc}`}
               percentual={percentual}
               votos={`${candidato.v}`}
-              srcImagem={`https://www12.senado.leg.br/_app/apuracao/foto/${ufUrl}/senador/${candidato.n}/${candidato.sqcand}.jpeg`}
+              srcImagem={`https://www12.senado.leg.br/_app/apuracao/foto/${ufUrl}/${candidato.sqcand}.jpeg`}
             />
 
 

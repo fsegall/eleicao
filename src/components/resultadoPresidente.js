@@ -2,6 +2,8 @@ import React from 'react';
 import CandidatoBox from './candidatoBox';
 import styled from 'styled-components';
 import OutrosCandidatos from './outrosCandidatos';
+import BarraSenador from './barraResultadoSenadores';
+
 
 //
 // Padrão Usado no Arquivo
@@ -84,52 +86,55 @@ const BoxTextoHorizontal = styled.div`
 const ResultadoPresidente = (props) => {
   console.log('Presidente Props', props.uf);
   return (
-    <ContainerPresidente>
+    <div>
+      {props.uf === "br" && <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} />}
+      <ContainerPresidente>
 
-      <NomeCargo>
-        <span>
-          Presidente
+        <NomeCargo>
+          <span>
+            Presidente
         </span>
 
-        <div className="uf">
-          DF
+          <div className="uf">
+            DF
         </div>
-        {/*         <span className="uf">
+          {/*         <span className="uf">
           Nacional
         </span> */}
-      </NomeCargo>
+        </NomeCargo>
 
-      {props.candidatos.map((candidato, index) => {
+        {props.candidatos.map((candidato, index) => {
 
-        const candidatoVotos = parseInt(candidato.v);
+          const candidatoVotos = parseInt(candidato.v);
 
-        const totalDeVotos = parseInt(props.eleicaoDados.vnom) !== 0 ? parseInt(props.eleicaoDados.vnom) : 1;
+          const totalDeVotos = parseInt(props.eleicaoDados.vnom) !== 0 ? parseInt(props.eleicaoDados.vnom) : 1;
 
-        const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
+          const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
 
-        return <BoxTextoHorizontal key={index}>
-          <QuadroPresGov>
-            <img src={`https://www12.senado.leg.br/_app/apuracao/foto/br/presidente/${candidato.n}/${candidato.sqcand}.jpeg`} />
-          </QuadroPresGov>
-          <CandidatoBox
-            key={index}
-            gender="male"
-            eleito={`${candidato.e}`}
-            nome={`${candidato.nm}`}
-            partido={`${candidato.cc}`}
-            percentual={percentual}
-            votos={`${candidato.v}`}
-          />
-        </BoxTextoHorizontal>
-      }
-      )}
-      {/* <GovPresDemaisCandidatos /> */}
+          return <BoxTextoHorizontal key={index}>
+            <QuadroPresGov>
+              <img src={`https://www12.senado.leg.br/_app/apuracao/foto/br/${candidato.sqcand}.jpeg`} />
+            </QuadroPresGov>
+            <CandidatoBox
+              key={index}
+              gender="male"
+              eleito={`${candidato.e}`}
+              nome={`${candidato.nm}`}
+              partido={`${candidato.cc}`}
+              percentual={percentual}
+              votos={`${candidato.v}`}
+            />
+          </BoxTextoHorizontal>
+        }
+        )}
+        {/* <GovPresDemaisCandidatos /> */}
 
-      <ContainerOutros>
-        <OutrosCandidatos todos={props.todos} />
-      </ContainerOutros>
+        <ContainerOutros>
+          <OutrosCandidatos todos={props.todos} />
+        </ContainerOutros>
 
-    </ContainerPresidente>
+      </ContainerPresidente>
+    </div>
   )
 }
 

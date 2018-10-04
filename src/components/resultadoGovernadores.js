@@ -1,7 +1,6 @@
 import React from 'react';
 /* import { GovPresDemaisCandidatos } from './demaisCandidatos'; */
 import CandidatoBox from './candidatoBox';
-import maleImage from '../img/male-placeholder.png';
 import styled from 'styled-components';
 import OutrosCandidatos from './outrosCandidatos';
 
@@ -108,7 +107,7 @@ const ResultadoGovernadores = (props) => {
 
         return <BoxTextoHorizontal key={index}>
           <QuadroPresGov>
-            <img src={`https://www12.senado.leg.br/_app/apuracao/foto/${props.uf}/governador/${candidato.n}/${candidato.sqcand}.jpeg`} />
+            <img src={`https://www12.senado.leg.br/_app/apuracao/foto/${props.uf}/${candidato.sqcand}.jpeg`} />
           </QuadroPresGov>
           <CandidatoBox
             key={index}
