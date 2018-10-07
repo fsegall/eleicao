@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-import BarraSenador from './barraResultadoSenadores';
 import Select from 'react-select';
 import { construirUrls } from '../urlsEleicao';
 import ResultadoPorCargo from './resultadoPorCargo';
@@ -23,9 +22,9 @@ const ContainerResultados = styled.div`
 
 const Ufs = ['BR', 'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
-const UrlSenadores = construirUrls('senador');
-const UrlGovernadores = construirUrls('governador');
-const UrlPresidente = construirUrls('presidente');
+const UrlSenadores = construirUrls('0005', '297');
+const UrlGovernadores = construirUrls('0003', '297');
+const UrlPresidente = construirUrls('0001', '295');
 
 
 // Faz uma grid com 27 colunas para cada UF

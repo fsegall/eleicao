@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import male from '../img/male-placeholder.png';
-import female from '../img/female-placeholder.jpg';
 import BarraDeProgresso from './barraDeProgresso';
 
 

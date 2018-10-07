@@ -53,6 +53,8 @@ const ResultadoSenadores = (props) => {
 
           const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
 
+          console.log('percentualCheck', percentual);
+
           const ufUrl = props.uf.toLowerCase();
 
           return (
@@ -67,9 +69,8 @@ const ResultadoSenadores = (props) => {
               partido={`${candidato.cc}`}
               percentual={percentual}
               votos={`${candidato.v}`}
-              srcImagem={`https://www12.senado.leg.br/_app/apuracao/foto/${ufUrl}/${candidato.sqcand}.jpeg`}
+              srcImagem={`http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/297/fotos/${ufUrl}/${candidato.sqcand}.jpeg`}
             />
-
 
           )
         }

@@ -4,22 +4,23 @@ import image from '../../img/ulysses.jpg';
 
 // Banner do footer
 
-const ImageContainer = styled.div`
-  > img {
-    background-size: cover;
-    max-height: 300px;
-    background-repeat: no-repeat;
+const FooterContainer = styled.div`
+    height: 100px;
+    background-color: #ccc;
     width:100%;
     margin-top: 3rem;
-  }
-
+      p {
+        color: #484848;
+        text-align: center;
+        padding: 3rem;
+      }
 `;
 
 const Footer = () => {
   return (
-    <ImageContainer>
-      <img src={image} />
-    </ImageContainer>
+    <FooterContainer>
+      <p>copyright2018&copy; - Built with ReactJS by Felipe. ;)</p>
+    </FooterContainer>
   )
 }
 

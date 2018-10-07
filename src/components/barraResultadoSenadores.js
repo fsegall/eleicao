@@ -127,7 +127,7 @@ const BarraSenador = ({ uf, eleicaoDados }) => {
           <span>{eleicaoDados.ea / eleicaoDados.e * 100}</span>
         </div>
 
-        <BarraDeProgresso percentual="100" uf={uf} />
+        <BarraDeProgresso percentual={eleicaoDados.ea / eleicaoDados.e * 100} uf={uf} />
 
       </SenadorVotos>
 

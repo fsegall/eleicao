@@ -22,7 +22,7 @@ const Preencher = styled.div`
 `
 
 const BarraDeProgresso = ({ percentual, uf }) => {
-  console.log('percentual', Math.round(percentual));
+  console.log('percentualZero', Math.round(percentual));
   return (
     <div>
       <Barra uf={uf}>

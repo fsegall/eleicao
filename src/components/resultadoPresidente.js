@@ -113,7 +113,7 @@ const ResultadoPresidente = (props) => {
 
           return <BoxTextoHorizontal key={index}>
             <QuadroPresGov>
-              <img src={`https://www12.senado.leg.br/_app/apuracao/foto/br/${candidato.sqcand}.jpeg`} />
+              <img src={`http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/295/fotos/${props.uf}/${candidato.sqcand}.jpeg`} />
             </QuadroPresGov>
             <CandidatoBox
               key={index}
@@ -137,5 +137,7 @@ const ResultadoPresidente = (props) => {
     </div>
   )
 }
+
+/* {`https://www12.senado.leg.br/_app/apuracao/foto/br/${candidato.sqcand}.jpeg`} */
 
 export default ResultadoPresidente;
