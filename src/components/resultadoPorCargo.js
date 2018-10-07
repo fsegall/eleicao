@@ -19,7 +19,7 @@ export default class ResultadoPorCargo extends Component {
   componentDidMount = () => {
     this.setState({ isLoading: true });
     this.timer = setInterval(
-      () => this.getListaEleicao(this.props.url), 3000
+      () => this.getListaEleicao(this.props.url), 10000
     )
   }
 
@@ -31,7 +31,7 @@ export default class ResultadoPorCargo extends Component {
       isLoading: true
     });
     this.timer = setInterval(
-      () => this.getListaEleicao(nextProps.url), 3000
+      () => this.getListaEleicao(nextProps.url), 10000
     )
   }
 

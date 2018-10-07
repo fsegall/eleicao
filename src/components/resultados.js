@@ -111,7 +111,7 @@ class Resultados extends Component {
 
           {/* <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} /> */}
 
-          <ResultadoPorCargo url={"https://www12.senado.leg.br/_app/apuracao/ag/df/presidente.json"} uf={estadoSelecionado} />
+          <ResultadoPorCargo url={"https://www12.senado.leg.br/_app/apuracao/ag/br/presidente.json"} uf={estadoSelecionado} />
 
           <Separador />
 
