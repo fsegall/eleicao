@@ -66,6 +66,7 @@ const NomeCargo = styled.h3`
   .uf {
     border-left: 0.3rem solid #0095da;
     padding-left: 0.3rem;
+    text-transform: uppercase;
   }
 `;
 
@@ -96,8 +97,8 @@ const ResultadoPresidente = (props) => {
         </span>
 
           <div className="uf">
-            DF
-        </div>
+            {props.uf}
+          </div>
           {/*         <span className="uf">
           Nacional
         </span> */}

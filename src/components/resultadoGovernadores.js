@@ -86,18 +86,19 @@ const BoxTextoHorizontal = styled.div`
 
 const ResultadoGovernadores = (props) => {
   console.log('chegou', props.uf);
+
+  const eleitos = props.candidatos.filter((candidato) => candidato.e === 's');
+
   return (
     <ContainerGovernador>
 
       <NomeCargoGov>
         Governador
-        <span className="uf">Eleito</span>
-
+        {eleitos.length > 1 && <span className="uf">Segundo Turno</span>}
+        {eleitos.length === 1 && <span className="uf">Eleito</span>}
       </NomeCargoGov>
 
       {props.candidatos.map((candidato, index) => {
-
-
 
         const candidatoVotos = parseInt(candidato.v);
 
