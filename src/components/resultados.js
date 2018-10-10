@@ -20,11 +20,19 @@ const ContainerResultados = styled.div`
 
 // Os Estados
 
-const Ufs = ['BR', 'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
+const Ufs = ['BR', 'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
 const UrlSenadores = construirUrls('0005', '297');
 const UrlGovernadores = construirUrls('0003', '297');
 const UrlPresidente = construirUrls('0001', '295');
+
+/* console.log('Senadores ulrs', UrlSenadores);
+
+Ufs.forEach((uf) => {
+  const ufKey = uf.toLowerCase();
+
+  UrlSenadores[ufkey]
+}) */
 
 
 // Faz uma grid com 27 colunas para cada UF

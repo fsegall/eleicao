@@ -54,7 +54,7 @@ const SenadorVotos = styled.div`
 // Componente Completo
 
 const BarraSenador = ({ uf, eleicaoDados }) => {
-  console.log("uf é", uf);
+  console.log("perc", (eleicaoDados.ea / eleicaoDados.e * 100).toFixed(2));
   if (uf === 'br') {
     return (
       <BarraContainer>
@@ -75,7 +75,7 @@ const BarraSenador = ({ uf, eleicaoDados }) => {
             <span>{eleicaoDados.ea / eleicaoDados.e * 100}</span>
           </div>
 
-          <BarraDeProgresso percentual={eleicaoDados.ea / eleicaoDados.e * 100} uf={uf} />
+          <BarraDeProgresso percentual={(eleicaoDados.ea / eleicaoDados.e * 100).toFixed(2)} uf={uf} />
 
         </SenadorVotos>
 
@@ -127,7 +127,7 @@ const BarraSenador = ({ uf, eleicaoDados }) => {
           <span>{eleicaoDados.ea / eleicaoDados.e * 100}</span>
         </div>
 
-        <BarraDeProgresso percentual={eleicaoDados.ea / eleicaoDados.e * 100} uf={uf} />
+        <BarraDeProgresso percentual={(eleicaoDados.ea / eleicaoDados.e * 100).toFixed(2)} uf={uf} />
 
       </SenadorVotos>
 

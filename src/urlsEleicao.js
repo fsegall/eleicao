@@ -2,7 +2,7 @@
 
 export function construirUrls(cargo, eleicao) {
 
-  const Ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
+  const Ufs = ['BR', 'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'];
 
   let AllUrls = {};
 
@@ -21,7 +21,6 @@ http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/297/dadosdivwe
  
  export function construirUrlsImagens() {
 `https://www12.senado.leg.br/_app/apuracao/ag/${keyUf}/${cargo}.json`
-
 
 
 } */

@@ -18,8 +18,8 @@ export default class ResultadoPorCargo extends Component {
 
   componentDidMount = () => {
     this.setState({ isLoading: true });
-    this.timer = setInterval(
-      () => this.getListaEleicao(this.props.url), 10000
+    this.timer = setTimeout(
+      () => this.getListaEleicao(this.props.url), 1
     )
   }
 
@@ -30,14 +30,14 @@ export default class ResultadoPorCargo extends Component {
       candidatoDados: [],
       isLoading: true
     });
-    this.timer = setInterval(
-      () => this.getListaEleicao(nextProps.url), 10000
+    this.timer = setTimeout(
+      () => this.getListaEleicao(nextProps.url), 1
     )
   }
 
-  componentWillUnmount = () => {
-    clearInterval(this.timer)
-  }
+  /*   componentWillUnmount = () => {
+      clearInterval(this.timer)
+    } */
 
 
   getListaEleicao = (url) => {
