@@ -14,8 +14,6 @@ const options = [
   { value: 'Beltrano', label: 'Beltrano' }
 ]
 
-
-
 export const DemaisCandidatos = () => {
   return (
     <SelectContainer>

@@ -25,7 +25,7 @@ const CandidatosLista = styled.ul`
     display: none;
   }
   ${(props) => props.open && css`
-    li {
+  li {
       color: #484848;
       font-size: 1rem;
       border: 1px solid #f4f4f4;
@@ -37,12 +37,10 @@ const CandidatosLista = styled.ul`
     li:hover {
       background-color: #f4f4f4;
     }
-    
     `
+  }`;
 
-  }`
-
-export default class OutrosCandidatos extends Component {
+class OutrosCandidatos extends Component {
 
   state = {
     open: false,
@@ -67,11 +65,12 @@ export default class OutrosCandidatos extends Component {
     console.log(this.state.open);
   }
 
-
-  render() {
-
+  render = () => {
     const { todos } = this.props;
     const { isLoading } = this.state;
+    const todosCandidatos = todos.map((candidato, index) => <li key={index}>
+      O candidato ${candidato.nm} do partido ${candidato.cc} tem ${candidato.v} votos e ${candidato.e == "s" ? "" : "não"} está eleito em ${candidato.seq} lugar com o estatus da candidatura considerada como ${candidato.dsit} pelo TSE.
+  </li>)
     console.log(todos);
 
     if (isLoading) {
@@ -84,15 +83,6 @@ export default class OutrosCandidatos extends Component {
         </CandidatosListaContainer>
       )
     }
-
-    const todosCandidatos = todos.map((candidato, index) => {
-
-      return (
-        <li key={index}>
-          {`O candidato ${candidato.nm} do partido ${candidato.cc} tem ${candidato.v} votos e ${candidato.e == "s" ? "" : "não"} está eleito em ${candidato.seq} lugar com o estatus da candidatura considerada como ${candidato.dsit} pelo TSE.`}
-        </li>
-      );
-    });
 
     return (
       <CandidatosListaContainer onClick={(e) => this.onClick(e)} open={this.state.open}>
