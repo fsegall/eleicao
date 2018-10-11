@@ -44,16 +44,8 @@ class OutrosCandidatos extends Component {
 
   state = {
     open: false,
-    loading: false
   }
 
-  /*   componentDidMount = () => {
-      this.setState({ isLoading: true });
-    } */
-
-  componentWillReceiveProps = () => {
-    this.setState({ isLoading: false });
-  }
 
   onClick = (e) => {
     console.log(e);
@@ -68,22 +60,9 @@ class OutrosCandidatos extends Component {
   render = () => {
     const { todos } = this.props;
     console.log(todos);
-    const { isLoading } = this.state;
     const todosCandidatos = todos.map((candidato, index) => <li key={index}>
       O/a candidato/a {candidato.nm} do partido {candidato.cc} tem {candidato.v} votos e {candidato.e == "s" ? "" : "não"} está eleito em {candidato.seq} lugar com o estatus da candidatura considerada como {candidato.dsit} pelo TSE.
   </li>)
-    console.log(todos);
-
-    if (isLoading) {
-      return (
-        <CandidatosListaContainer onClick={(e) => this.onClick(e)} open={this.state.open}>
-          <span className="title_collapse">Demais Candidatos</span>
-          <CandidatosLista open={this.state.open}>
-            <li>Loading...</li>
-          </CandidatosLista>
-        </CandidatosListaContainer>
-      )
-    }
 
     return (
       <CandidatosListaContainer onClick={(e) => this.onClick(e)} open={this.state.open}>
