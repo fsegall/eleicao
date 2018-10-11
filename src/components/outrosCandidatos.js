@@ -47,9 +47,9 @@ class OutrosCandidatos extends Component {
     loading: false
   }
 
-  componentDidMount = () => {
-    this.setState({ isLoading: true });
-  }
+  /*   componentDidMount = () => {
+      this.setState({ isLoading: true });
+    } */
 
   componentWillReceiveProps = () => {
     this.setState({ isLoading: false });
@@ -67,9 +67,10 @@ class OutrosCandidatos extends Component {
 
   render = () => {
     const { todos } = this.props;
+    console.log(todos);
     const { isLoading } = this.state;
     const todosCandidatos = todos.map((candidato, index) => <li key={index}>
-      O candidato ${candidato.nm} do partido ${candidato.cc} tem ${candidato.v} votos e ${candidato.e == "s" ? "" : "não"} está eleito em ${candidato.seq} lugar com o estatus da candidatura considerada como ${candidato.dsit} pelo TSE.
+      O/a candidato/a {candidato.nm} do partido {candidato.cc} tem {candidato.v} votos e {candidato.e == "s" ? "" : "não"} está eleito em {candidato.seq} lugar com o estatus da candidatura considerada como {candidato.dsit} pelo TSE.
   </li>)
     console.log(todos);
 
@@ -94,3 +95,5 @@ class OutrosCandidatos extends Component {
     );
   }
 }
+
+export default OutrosCandidatos;
