@@ -3,7 +3,7 @@ import axios from 'axios'
 import ResultadoSenadores from './resultadoSenadores'
 import ResultadoGovernadores from './resultadoGovernadores'
 import ResultadoPresidente from './resultadoPresidente'
-import resultadoNacional from '../../nodeServer/dadosEleicao2018/Presidente/Presidente_df.json'
+import resultadoNacional from '../../nodeServer/dadosEleicao2018/Presidente/Presidente_df_fake.json'
 console.log('Dados Nacionais', resultadoNacional)
 
 export default class ResultadoPorCargo extends Component {
