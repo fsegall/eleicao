@@ -1,8 +1,9 @@
-import React from 'react';
-import CandidatoBox from './candidatoBox';
-import styled from 'styled-components';
-import OutrosCandidatos from './outrosCandidatos';
-import BarraSenador from './barraResultadoSenadores';
+import React from 'react'
+import CandidatoBox from './candidatoBox'
+import styled from 'styled-components'
+import OutrosCandidatos from './outrosCandidatos'
+import BarraSenador from './barraResultadoSenadores'
+import Faker from 'faker'
 
 //
 // Padrão Usado no Arquivo
@@ -27,62 +28,51 @@ const ContainerResultadosSenadores = styled.div`
   @media (max-width: 430px) {
     grid-template-columns: 1fr;
   }
-`;
-
+`
 
 // Componente Funcional
 
-const ResultadoSenadores = (props) => {
-
-
-
+const ResultadoSenadores = props => {
   return (
-
     <React.Fragment>
-
       <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} />
 
       <ContainerResultadosSenadores>
-
-
         {props.candidatos.map((candidato, index) => {
+          const candidatoVotos = parseInt(candidato.v)
 
-          const candidatoVotos = parseInt(candidato.v);
+          const totalDeVotos =
+            parseInt(props.eleicaoDados.vnom) !== 0
+              ? parseInt(props.eleicaoDados.vnom)
+              : 1
 
-          const totalDeVotos = parseInt(props.eleicaoDados.vnom) !== 0 ? parseInt(props.eleicaoDados.vnom) : 1;
+          const percentual = ((candidatoVotos / totalDeVotos) * 100).toFixed(2)
 
-          const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
+          console.log('percentualCheck', percentual)
 
-          console.log('percentualCheck', percentual);
-
-          const ufUrl = props.uf.toLowerCase();
+          const ufUrl = props.uf.toLowerCase()
 
           return (
-
-
             <CandidatoBox
               key={index}
-              gender="male"
+              gender='male'
               eleitoSenador={`${candidato.e}`}
               eleito={`${candidato.e}`}
               nome={`${candidato.nm}`}
               partido={`${candidato.cc}`}
               percentual={percentual}
               votos={`${candidato.v}`}
-              srcImagem={`http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/297/fotos/${ufUrl}/${candidato.sqcand}.jpeg`}
+              srcImagem={Faker.image.avatar()}
+              /*               srcImagem={`http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/297/fotos/${ufUrl}/${candidato.sqcand}.jpeg`} */
             />
-
           )
-        }
-        )}
-
+        })}
       </ContainerResultadosSenadores>
 
       {/* <DemaisCandidatos /> */}
       <OutrosCandidatos todos={props.todos} />
-
     </React.Fragment>
   )
 }
 
-export default ResultadoSenadores;
+export default ResultadoSenadores

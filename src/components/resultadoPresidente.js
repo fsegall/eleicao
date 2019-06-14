@@ -1,16 +1,15 @@
-import React from 'react';
-import CandidatoBox from './candidatoBox';
-import styled from 'styled-components';
-import OutrosCandidatos from './outrosCandidatos';
-import BarraSenador from './barraResultadoSenadores';
-
+import React from 'react'
+import CandidatoBox from './candidatoBox'
+import styled from 'styled-components'
+import OutrosCandidatos from './outrosCandidatos'
+import BarraSenador from './barraResultadoSenadores'
+import Faker from 'faker'
 
 //
 // Padrão Usado no Arquivo
 // Container
 // Componentes Completos
 //
-
 
 // Container de Grid
 
@@ -19,12 +18,11 @@ import BarraSenador from './barraResultadoSenadores';
 const ContainerOutros = styled.div`
   grid-column: span 2;
   margin: 0 1rem;
-`;
+`
 
 // Foto Alinhada por padrão para o primeiro colocado
 
 const QuadroPresGov = styled.div`
-  
   height: 8rem;
   width: 6rem;
   border: 3px solid #0095da;
@@ -33,11 +31,11 @@ const QuadroPresGov = styled.div`
   grid-row: 2 / 3;
   margin: 0 1rem 0 1rem;
   img {
-    ${'' /* object-fit: scale-down; */}
+    ${''}
     height: 8rem;
     width: 6rem;
   }
-`;
+`
 
 // Resultados Presidente
 
@@ -47,11 +45,10 @@ const ContainerPresidente = styled.div`
   border: 1px solid #ccc;
   display: grid;
   width: 100%;
-  @media (min-width: 736px ) and (max-width: 1025px){
-  text-align: left;
+  @media (min-width: 736px) and (max-width: 1025px) {
+    text-align: left;
   }
-`;
-
+`
 
 const NomeCargo = styled.h3`
   border-bottom: 1px solid #ccc;
@@ -68,7 +65,7 @@ const NomeCargo = styled.h3`
     padding-left: 0.3rem;
     text-transform: uppercase;
   }
-`;
+`
 
 // Subcomponentes
 
@@ -76,64 +73,64 @@ const NomeCargo = styled.h3`
 
 const BoxTextoHorizontal = styled.div`
   display: flex;
-  @media (max-width: 736px){
-  grid-column: span 2;
-  margin-bottom: 0.8rem;
-}
-`;
+  @media (max-width: 736px) {
+    grid-column: span 2;
+    margin-bottom: 0.8rem;
+  }
+`
 
 // Componente Completo
 
-const ResultadoPresidente = (props) => {
-  console.log('Presidente Props', props.uf);
+const ResultadoPresidente = props => {
+  console.log('Presidente Props', props.uf)
   return (
     <div>
-      {props.uf === "br" && <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} />}
+      {props.uf === 'br' && (
+        <BarraSenador uf={props.uf} eleicaoDados={props.eleicaoDados} />
+      )}
       <ContainerPresidente>
-
         <NomeCargo>
-          <span>
-            Presidente
-        </span>
+          <span>Presidente</span>
 
-          <div className="uf">
-            {props.uf}
-          </div>
+          <div className='uf'>{props.uf}</div>
           {/*         <span className="uf">
           Nacional
         </span> */}
         </NomeCargo>
 
         {props.candidatos.map((candidato, index) => {
+          const candidatoVotos = parseInt(candidato.v)
 
-          const candidatoVotos = parseInt(candidato.v);
+          const totalDeVotos =
+            parseInt(props.eleicaoDados.vnom) !== 0
+              ? parseInt(props.eleicaoDados.vnom)
+              : 1
 
-          const totalDeVotos = parseInt(props.eleicaoDados.vnom) !== 0 ? parseInt(props.eleicaoDados.vnom) : 1;
-
-          const percentual = (candidatoVotos / totalDeVotos * 100).toFixed(2);
-
-          return <BoxTextoHorizontal key={index}>
-            <QuadroPresGov>
-              <img src={`http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/295/fotos/${props.uf}/${candidato.sqcand}.jpeg`} />
-            </QuadroPresGov>
-            <CandidatoBox
-              key={index}
-              gender="male"
-              eleito={`${candidato.e}`}
-              nome={`${candidato.nm}`}
-              partido={`${candidato.cc}`}
-              percentual={percentual}
-              votos={`${candidato.v}`}
-            />
-          </BoxTextoHorizontal>
-        }
-        )}
+          const percentual = ((candidatoVotos / totalDeVotos) * 100).toFixed(2)
+          console.log('avatar', Faker.image.avatar())
+          return (
+            <BoxTextoHorizontal key={index}>
+              <QuadroPresGov>
+                <img src={Faker.image.avatar()} />
+                {/*               <img src={`http://interessados.divulgacao.tse.jus.br/2018/divulgacao/oficial/295/fotos/${props.uf}/${candidato.sqcand}.jpeg`} /> */}
+              </QuadroPresGov>
+              <CandidatoBox
+                key={index}
+                gender='male'
+                eleito={`${candidato.e}`}
+                nome={`${candidato.nm}`}
+                partido={`${candidato.cc}`}
+                percentual={percentual}
+                votos={`${candidato.v}`}
+              />
+            </BoxTextoHorizontal>
+          )
+        })}
         {/* <GovPresDemaisCandidatos /> */}
 
         <ContainerOutros>
           <OutrosCandidatos todos={props.todos} />
         </ContainerOutros>
-
       </ContainerPresidente>
     </div>
   )
@@ -141,4 +138,4 @@ const ResultadoPresidente = (props) => {
 
 /* {`https://www12.senado.leg.br/_app/apuracao/foto/br/${candidato.sqcand}.jpeg`} */
 
-export default ResultadoPresidente;
+export default ResultadoPresidente
